@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/chat",
-        destination: "http://localhost:3000/content/cheap",
+        destination: "http://localhost:3001/content/cheap",
       },
     ];
   },

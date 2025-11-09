@@ -101,7 +101,15 @@ export default function FloatingChatDemo() {
                 </li>
               </ul>
 
-              <div className="mt-6 bg-purple-500/10 border border-purple-500/30 rounded-lg p-4">
+              <div className="mt-6 bg-red-500/10 border border-red-500/30 rounded-lg p-4 mb-4">
+                <p className="text-red-300 text-sm">
+                  <strong>⚠️ Important:</strong> You need to run the backend API server for the payment flow to work.
+                  The API should be available at <code className="bg-black/30 px-1 rounded">NEXT_PUBLIC_API_ENDPOINT</code>.
+                  Without it, you will see a "404 API endpoint not found" error.
+                </p>
+              </div>
+
+              <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-4">
                 <p className="text-purple-300 text-sm">
                   <strong>Note:</strong> Make sure you have testnet USDC in your wallet. Get it from{' '}
                   <a

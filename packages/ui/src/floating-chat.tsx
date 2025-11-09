@@ -40,6 +40,16 @@ export function FloatingChat({
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Auto-close error toast after 3 seconds
+  useEffect(() => {
+    if (errorMessage) {
+      const timer = setTimeout(() => {
+        setErrorMessage(null);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage]);
+
   // Debug: Log component mount and state
   useEffect(() => {
     console.log('FloatingChat mounted', { isOpen, agentId, agentName, position });
@@ -125,34 +135,60 @@ export function FloatingChat({
         );
       }
     } catch (error) {
-      console.error('Error sending message:', error);
+      // Log full error details to console
+      console.error('❌ Error sending message:', error);
+      console.error('Full error details:', {
+        error,
+        message: error instanceof Error ? error.message : String(error),
+        type: error && typeof error === 'object' && 'type' in error ? (error as any).type : 'unknown',
+      });
 
-      // Handle different error types
-      let errorMsg = 'Failed to send message. Please try again.';
+      // Create short, user-friendly error message for UI
+      let shortErrorMsg = 'Failed to send message. Please try again.';
+      let detailedError = '';
 
       if (error && typeof error === 'object' && 'type' in error) {
         const paymentError = error as PaymentError & Error;
+        detailedError = paymentError.message;
+
         switch (paymentError.type) {
           case 'insufficient_balance':
-            errorMsg = paymentError.message;
+            shortErrorMsg = 'Insufficient USDC balance';
             break;
           case 'signing_error':
-            errorMsg = 'Transaction signing failed. Please try again.';
+            shortErrorMsg = 'Transaction signing failed';
             break;
           case 'connection_error':
-            errorMsg = paymentError.message;
+            shortErrorMsg = 'Cannot connect to API server';
             break;
           default:
-            errorMsg = paymentError.message || errorMsg;
+            // For unknown errors, check for common patterns
+            if (paymentError.message.includes('404')) {
+              shortErrorMsg = 'API endpoint not found';
+              detailedError = 'The backend API is not running. Please start the API server.';
+            } else if (paymentError.message.includes('402')) {
+              shortErrorMsg = 'Payment validation failed';
+            } else {
+              // Truncate long error messages
+              shortErrorMsg = paymentError.message.length > 100
+                ? paymentError.message.substring(0, 100) + '...'
+                : paymentError.message;
+            }
         }
       }
 
-      setErrorMessage(errorMsg);
+      // Log user-friendly message
+      console.warn('💬 User-friendly error:', shortErrorMsg);
+      if (detailedError) {
+        console.info('📋 Details:', detailedError);
+      }
 
-      // Show error as agent message
+      setErrorMessage(shortErrorMsg);
+
+      // Show error as agent message with concise text
       const errorAgentMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: `Sorry, I encountered an error: ${errorMsg}`,
+        content: `Sorry, I encountered an error: ${shortErrorMsg}${detailedError ? '\n\n' + detailedError : ''}`,
         sender: 'agent',
         timestamp: new Date(),
         agentAvatar,
@@ -203,7 +239,7 @@ export function FloatingChat({
       {/* Chat Dialog */}
       {isOpen && (
         <div
-          className="border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+          className="border border-white/10 rounded-2xl shadow-2xl flex flex-col"
           style={{
             position: 'fixed',
             bottom: '24px',
@@ -213,6 +249,7 @@ export function FloatingChat({
             zIndex: 9999,
             background: 'rgba(0, 0, 0, 0.4)',
             backdropFilter: 'blur(20px)',
+            overflow: 'hidden',
           }}
         >
           {/* Header */}
@@ -246,34 +283,37 @@ export function FloatingChat({
             </button>
           </div>
 
-          {/* Error Toast */}
+          {/* Error Toast - Inside dialog, below header */}
           {errorMessage && (
-            <div className="absolute top-16 left-4 right-4 z-10">
-              <div className="bg-red-500/10 border border-red-500/50 px-4 py-3 rounded-lg shadow-lg">
-                <div className="flex items-start gap-2">
-                  <svg
-                    className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-                    />
-                  </svg>
-                  <div className="flex-1">
-                    <p className="text-white/80 text-sm">{errorMessage}</p>
-                  </div>
-                  <button
-                    onClick={() => setErrorMessage(null)}
-                    className="text-white/60 hover:text-white/80 transition-colors"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
+            <div
+              className="px-4 py-2 bg-red-500/10 border-b border-red-500/50"
+              style={{
+                animation: 'slideDown 0.3s ease-out',
+              }}
+            >
+              <div className="flex items-start gap-2">
+                <svg
+                  className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                  />
+                </svg>
+                <div className="flex-1">
+                  <p className="text-red-300 text-sm font-medium">{errorMessage}</p>
                 </div>
+                <button
+                  onClick={() => setErrorMessage(null)}
+                  className="text-red-400/60 hover:text-red-400 transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </button>
               </div>
             </div>
           )}
