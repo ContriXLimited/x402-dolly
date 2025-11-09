@@ -3,9 +3,11 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { useRouter } from 'next/navigation';
 
 export function Header() {
   const [mounted, setMounted] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setMounted(true);
@@ -25,7 +27,9 @@ export function Header() {
               className="object-contain"
             />
           </div>
-          <h1 className="text-lg font-bold tracking-tight text-white">X402DOLLY</h1>
+          <h1 className="text-lg font-bold tracking-tight text-white cursor-pointer" onClick={() => {
+            router.push('/');
+          }}>X402DOLLY</h1>
         </div>
 
         {/* Wallet Connect Button - Only render on client to avoid hydration mismatch */}
