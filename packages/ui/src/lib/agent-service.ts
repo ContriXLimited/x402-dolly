@@ -13,11 +13,6 @@ import {
   PaymentError,
 } from "./x402-payment";
 
-// Use relative path - Next.js rewrites will proxy to localhost:3000
-const API_ENDPOINT = typeof window !== 'undefined' && process.env.NEXT_PUBLIC_API_ENDPOINT
-  ? process.env.NEXT_PUBLIC_API_ENDPOINT
-  : "";
-
 export interface ChatRequest {
   agentId: string;
   message: string;
@@ -40,7 +35,8 @@ export interface ChatResponse {
  */
 export async function sendChatRequest(
   request: ChatRequest,
-  wallet: WalletContextState
+  wallet: WalletContextState,
+  apiEndpoint: string = ""
 ): Promise<ChatResponse> {
   const { publicKey, signTransaction } = wallet;
 
@@ -78,7 +74,8 @@ export async function sendChatRequest(
   try {
     // Step 1: Make initial request (expecting 402)
     console.log("🚀 Making initial request to API...");
-    const initialResponse = await fetch(`${API_ENDPOINT}/api/chat`, {
+    console.log(`  API Endpoint: ${apiEndpoint}`);
+    const initialResponse = await fetch(apiEndpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -118,7 +115,7 @@ export async function sendChatRequest(
 
     // Step 6: Retry request with X-PAYMENT header
     console.log("🔄 Retrying request with X-PAYMENT header...");
-    const paymentResponse = await fetch(`${API_ENDPOINT}/api/chat`, {
+    const paymentResponse = await fetch(apiEndpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -171,6 +171,7 @@ export default function MyPage() {
         agentDescription="Specialized in DeFi trading"
         position="bottom-right"
         logoUrl="/logo.svg"
+        apiEndpoint="http://localhost:3000"
       />
     </>
   );
@@ -184,10 +185,12 @@ export default function MyPage() {
 - `agentDescription` (optional): Welcome message description
 - `position` (optional): `'bottom-right'` or `'bottom-left'` (default: `'bottom-right'`)
 - `logoUrl` (optional): Logo to display in floating button (default: `'/logo.svg'`)
+- `apiEndpoint` (optional): Backend API endpoint (default: `'http://localhost:3000'`)
 
 **Requirements:**
 - Must be wrapped in Solana `WalletProvider` (see `apps/web/components/WalletProvider.tsx`)
-- Requires environment variables: `NEXT_PUBLIC_SOLANA_RPC_URL`, `NEXT_PUBLIC_API_ENDPOINT`
+- Requires environment variable: `NEXT_PUBLIC_SOLANA_RPC_URL` (optional, defaults to Solana devnet)
+- API endpoint can be configured via `apiEndpoint` prop
 - Users need testnet USDC from https://faucet.circle.com/
 
 **Demo Page:**
