@@ -141,11 +141,13 @@ NEXT_PUBLIC_API_ENDPOINT=http://localhost:3000
 - Direct file exports: `import { Button } from '@repo/ui/button'`
 - Components in `packages/ui/src/*.tsx`
 
-#### FloatingChat Component
+### @dolly/x402-embed-sdk
 
-The `@repo/ui` package includes a reusable **FloatingChat** component that encapsulates the complete X402 payment flow in a floating chat widget.
+Standalone embeddable X402 payment widget for Solana - a beautiful floating chat interface with built-in USDC payment support.
 
-**Location:** `packages/ui/src/floating-chat.tsx`
+**Location:** `packages/x402-embed-sdk`
+
+The package includes a reusable **FloatingChat** component that encapsulates the complete X402 payment flow in a floating chat widget.
 
 **Features:**
 - Floating button in bottom-right or bottom-left corner
@@ -158,7 +160,7 @@ The `@repo/ui` package includes a reusable **FloatingChat** component that encap
 
 **Usage:**
 ```tsx
-import { FloatingChat } from '@repo/ui/floating-chat';
+import { FloatingChat } from '@dolly/x402-embed-sdk';
 
 export default function MyPage() {
   return (
@@ -196,9 +198,19 @@ export default function MyPage() {
 **Demo Page:**
 Visit `http://localhost:3000/floating-chat-demo` to see a working example
 
-**Internal Dependencies:**
-- `packages/ui/src/lib/agent-service.ts` - X402 payment orchestration
-- `packages/ui/src/lib/x402-payment.ts` - Solana transaction building
+**Publishing:**
+This package is configured for npm publishing. To publish:
+```bash
+cd packages/x402-embed-sdk
+pnpm build  # Build the package
+npm publish # Publish to npm (requires authentication)
+```
+
+**Internal Structure:**
+- `src/floating-chat.tsx` - Main FloatingChat component
+- `src/lib/agent-service.ts` - X402 payment orchestration
+- `src/lib/x402-payment.ts` - Solana transaction building
+- `src/index.tsx` - Package entry point
 
 ### @repo/eslint-config
 - Shared ESLint configurations
