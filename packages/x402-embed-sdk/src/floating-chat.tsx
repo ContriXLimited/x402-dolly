@@ -400,10 +400,10 @@ export function FloatingChat({
             {messages.map((message) => (
               <div
                 key={message.id}
-                className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                className={`flex gap-3 ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 {message.sender === 'agent' && (
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 flex items-center justify-center text-white font-bold text-xs flex-shrink-0 mr-2">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
                     {message.agentAvatar ? (
                       <img
                         src={message.agentAvatar}
@@ -428,7 +428,7 @@ export function FloatingChat({
 
             {/* Typing indicator */}
             {isTyping && (
-              <div className="flex gap-2">
+              <div className="flex gap-3">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
                   {agentAvatar ? (
                     <img
