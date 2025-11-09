@@ -1,13 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-
-export interface Agent {
-  id: string;
-  name: string;
-  description: string;
-  avatar: string;
-}
+import type { Agent } from '@/lib/agents';
 
 interface AgentCardProps {
   agent: Agent;
