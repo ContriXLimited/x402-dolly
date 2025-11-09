@@ -1,9 +1,16 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
 export function Header() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <header className="border-b border-white/10 px-3 py-3 bg-[#121212] backdropheader-blur-md">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
@@ -21,8 +28,8 @@ export function Header() {
           <h1 className="text-lg font-bold tracking-tight text-white">X402DOLLY</h1>
         </div>
 
-        {/* Wallet Connect Button */}
-        <WalletMultiButton className="gradient-button" />
+        {/* Wallet Connect Button - Only render on client to avoid hydration mismatch */}
+        {mounted && <WalletMultiButton className="gradient-button" />}
       </div>
     </header>
   );
