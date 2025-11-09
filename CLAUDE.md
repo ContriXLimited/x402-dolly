@@ -141,6 +141,62 @@ NEXT_PUBLIC_API_ENDPOINT=http://localhost:3000
 - Direct file exports: `import { Button } from '@repo/ui/button'`
 - Components in `packages/ui/src/*.tsx`
 
+#### FloatingChat Component
+
+The `@repo/ui` package includes a reusable **FloatingChat** component that encapsulates the complete X402 payment flow in a floating chat widget.
+
+**Location:** `packages/ui/src/floating-chat.tsx`
+
+**Features:**
+- Floating button in bottom-right or bottom-left corner
+- Expandable chat dialog (400x600px)
+- Complete X402 payment integration with Solana
+- Wallet connection check and USDC balance validation
+- Glassmorphism UI design with smooth animations
+- Error handling with user-friendly messages
+- Transaction signature logging and explorer links
+
+**Usage:**
+```tsx
+import { FloatingChat } from '@repo/ui/floating-chat';
+
+export default function MyPage() {
+  return (
+    <>
+      {/* Your page content */}
+
+      <FloatingChat
+        agentId="1"
+        agentName="Agent Alpha"
+        agentDescription="Specialized in DeFi trading"
+        position="bottom-right"
+        logoUrl="/logo.svg"
+      />
+    </>
+  );
+}
+```
+
+**Props:**
+- `agentId` (required): Agent identifier for API requests
+- `agentName` (optional): Display name for the agent
+- `agentAvatar` (optional): Agent avatar image URL
+- `agentDescription` (optional): Welcome message description
+- `position` (optional): `'bottom-right'` or `'bottom-left'` (default: `'bottom-right'`)
+- `logoUrl` (optional): Logo to display in floating button (default: `'/logo.svg'`)
+
+**Requirements:**
+- Must be wrapped in Solana `WalletProvider` (see `apps/web/components/WalletProvider.tsx`)
+- Requires environment variables: `NEXT_PUBLIC_SOLANA_RPC_URL`, `NEXT_PUBLIC_API_ENDPOINT`
+- Users need testnet USDC from https://faucet.circle.com/
+
+**Demo Page:**
+Visit `http://localhost:3000/floating-chat-demo` to see a working example
+
+**Internal Dependencies:**
+- `packages/ui/src/lib/agent-service.ts` - X402 payment orchestration
+- `packages/ui/src/lib/x402-payment.ts` - Solana transaction building
+
 ### @repo/eslint-config
 - Shared ESLint configurations
 - Includes Next.js and Prettier configs
