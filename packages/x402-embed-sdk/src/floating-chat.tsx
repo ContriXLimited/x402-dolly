@@ -6,6 +6,27 @@ import { MessageCircle, X, Send } from 'lucide-react';
 import { sendChatRequest } from './lib/agent-service';
 import { PaymentError } from './lib/x402-payment';
 
+// Add keyframes animation for the button pulse effect
+if (typeof document !== 'undefined') {
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes floatingChatPulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+      }
+    }
+  `;
+  if (!document.getElementById('floating-chat-animations')) {
+    style.id = 'floating-chat-animations';
+    document.head.appendChild(style);
+  }
+}
+
 export interface FloatingChatProps {
   agentId: string;
   agentName?: string;
@@ -217,26 +238,79 @@ export function FloatingChat({
     <>
       {/* Floating Button */}
       {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center"
+        <div
+          className="floating-chat-container"
           style={{
             position: 'fixed',
             bottom: '24px',
             ...positionStyle,
-            width: '64px',
-            height: '64px',
             zIndex: 9999,
-            background: 'linear-gradient(to bottom right, rgb(168 85 247), rgb(236 72 153), rgb(59 130 246))',
+            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
-          aria-label="Open chat"
         >
-          {logoUrl ? (
-            <img src={logoUrl} alt="Chat" className="w-10 h-10" />
-          ) : (
-            <MessageCircle className="w-8 h-8 text-white" />
-          )}
-        </button>
+          {/* Pulsing glow effect */}
+          <div
+            className="absolute inset-0 rounded-full pointer-events-none"
+            style={{
+              width: '64px',
+              height: '64px',
+              background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(59, 130, 246, 0.25))',
+              filter: 'blur(16px)',
+              animation: 'floatingChatPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }}
+          />
+
+          {/* Main button */}
+          <button
+            onClick={() => setIsOpen(true)}
+            className="relative rounded-full flex items-center justify-center group overflow-hidden"
+            style={{
+              width: '64px',
+              height: '64px',
+              background: 'transparent',
+              border: '2px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 4px 16px rgba(139, 92, 246, 0.2)',
+              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+            }}
+            onMouseEnter={(e) => {
+              const container = e.currentTarget.parentElement;
+              if (container) {
+                container.style.transform = 'translateY(-4px)';
+              }
+              e.currentTarget.style.transform = 'scale(1.05)';
+              e.currentTarget.style.boxShadow = '0 8px 24px rgba(139, 92, 246, 0.3)';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+            }}
+            onMouseLeave={(e) => {
+              const container = e.currentTarget.parentElement;
+              if (container) {
+                container.style.transform = 'translateY(0)';
+              }
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.boxShadow = '0 4px 16px rgba(139, 92, 246, 0.2)';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+            }}
+            aria-label="Open chat"
+            title="Chat with AI Agent"
+          >
+            {/* Gradient overlay on hover */}
+            <div
+              className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{
+                background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1))',
+              }}
+            />
+
+            {/* Icon */}
+            <div className="relative z-10">
+              {logoUrl ? (
+                <img src={logoUrl} alt="Chat" className="w-10 h-10 drop-shadow-lg" />
+              ) : (
+                <MessageCircle className="w-8 h-8 text-white drop-shadow-lg" />
+              )}
+            </div>
+          </button>
+        </div>
       )}
 
       {/* Chat Dialog */}
@@ -342,11 +416,10 @@ export function FloatingChat({
                   </div>
                 )}
                 <div
-                  className={`max-w-[75%] px-4 py-2 rounded-2xl ${
-                    message.sender === 'user'
-                      ? 'bg-gradient-to-r from-purple-500/80 to-blue-500/80 text-white rounded-br-sm'
-                      : 'bg-white/10 text-white rounded-tl-sm'
-                  }`}
+                  className={`max-w-[75%] px-4 py-2 rounded-2xl ${message.sender === 'user'
+                    ? 'bg-gradient-to-r from-purple-500/80 to-blue-500/80 text-white rounded-br-sm'
+                    : 'bg-white/10 text-white rounded-tl-sm'
+                    }`}
                 >
                   <p className="text-sm whitespace-pre-wrap break-words">{message.content}</p>
                 </div>
