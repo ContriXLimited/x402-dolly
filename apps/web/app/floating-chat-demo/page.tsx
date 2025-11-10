@@ -2,6 +2,7 @@
 
 import { Header } from '@/components/Header';
 import { FloatingChat } from '@askdolly/x402-embed-sdk';
+import { useWallet } from '@solana/wallet-adapter-react';
 
 // Mock agent data
 const DEMO_AGENT = {
@@ -12,6 +13,8 @@ const DEMO_AGENT = {
 };
 
 export default function FloatingChatDemo() {
+  const wallet = useWallet();
+
   return (
     <>
       <div className="min-h-screen bg-[#121212] relative">
@@ -128,14 +131,20 @@ export default function FloatingChatDemo() {
               <div className="mt-16 bg-black/40 backdrop-blur-lg border border-white/10 rounded-2xl p-8 text-left max-w-3xl mx-auto">
                 <h2 className="text-white font-semibold text-2xl mb-4">Usage Example</h2>
                 <pre className="text-sm text-gray-300 overflow-x-auto">
-                  <code>{`import { FloatingChat } from '@askdolly/x402-embed-sdk';
+                  <code>{`'use client';
+
+import { FloatingChat } from '@askdolly/x402-embed-sdk';
+import { useWallet } from '@solana/wallet-adapter-react';
 
 export default function MyPage() {
+  const wallet = useWallet();
+
   return (
     <>
       {/* Your page content */}
 
       <FloatingChat
+        wallet={wallet}
         agentId="1"
         agentName="Agent Alpha"
         agentDescription="Specialized in DeFi trading"
@@ -155,6 +164,7 @@ export default function MyPage() {
 
       {/* Floating Chat Component - Outside relative container */}
       <FloatingChat
+        wallet={wallet}
         agentId={DEMO_AGENT.id}
         agentName={DEMO_AGENT.name}
         agentDescription={DEMO_AGENT.description}

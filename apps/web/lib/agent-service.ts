@@ -16,18 +16,9 @@ import {
 // Use relative path - Next.js rewrites will proxy to backend
 const API_ENDPOINT = "";
 
-/**
- * Generate a random session ID
- */
-function generateSessionId(): string {
-  return crypto.randomUUID();
-}
-
 export interface ChatRequest {
-  sessionId: string;
-  walletAddress: string;
-  projectId: string;
-  content: string;
+  agentId: string;
+  message: string;
 }
 
 export interface PaymentInfo {
@@ -61,13 +52,9 @@ export interface ChatResponse {
 export async function sendChatRequest(
   projectId: string,
   message: string,
-  wallet: WalletContextState,
-  sessionId?: string
+  wallet: WalletContextState
 ): Promise<ChatResponse> {
   const { publicKey, signTransaction } = wallet;
-
-  // Generate session ID if not provided
-  const actualSessionId = sessionId || generateSessionId();
 
   // Validate wallet connection
   if (!publicKey) {
@@ -102,17 +89,13 @@ export async function sendChatRequest(
 
   // Build request body
   const requestBody: ChatRequest = {
-    sessionId: actualSessionId,
-    walletAddress: publicKey.toBase58(),
-    projectId,
-    content: message,
+    agentId: projectId,
+    message,
   };
 
   console.log("📝 Request:", {
-    sessionId: actualSessionId,
-    walletAddress: publicKey.toBase58(),
-    projectId,
-    contentLength: message.length,
+    agentId: projectId,
+    messageLength: message.length,
   });
 
   try {

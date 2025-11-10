@@ -34,9 +34,9 @@ export interface ChatResponse {
  * 4. Return response data on success
  */
 export async function sendChatRequest(
-  request: ChatRequest,
-  wallet: WalletContextState,
-  apiEndpoint: string = ""
+  projectId: string,
+  message: string,
+  wallet: WalletContextState
 ): Promise<ChatResponse> {
   const { publicKey, signTransaction } = wallet;
 
@@ -71,16 +71,26 @@ export async function sendChatRequest(
 
   console.log(`  ✅ Sufficient balance: ${balanceCheck.balance} USDC`);
 
+  // Build request body
+  const requestBody: ChatRequest = {
+    agentId: projectId,
+    message,
+  };
+
+  console.log("📝 Request:", {
+    agentId: projectId,
+    messageLength: message.length,
+  });
+
   try {
     // Step 1: Make initial request (expecting 402)
     console.log("🚀 Making initial request to API...");
-    console.log(`  API Endpoint: ${apiEndpoint}`);
-    const initialResponse = await fetch(apiEndpoint, {
+    const initialResponse = await fetch("/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(request),
+      body: JSON.stringify(requestBody),
     });
 
     // Step 2: Verify 402 Payment Required
@@ -115,13 +125,13 @@ export async function sendChatRequest(
 
     // Step 6: Retry request with X-PAYMENT header
     console.log("🔄 Retrying request with X-PAYMENT header...");
-    const paymentResponse = await fetch(apiEndpoint, {
+    const paymentResponse = await fetch("/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "X-PAYMENT": xPayment,
       },
-      body: JSON.stringify(request),
+      body: JSON.stringify(requestBody),
     });
 
     // Step 7: Check response status

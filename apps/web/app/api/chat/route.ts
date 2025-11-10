@@ -1,18 +1,15 @@
 /**
- * LXDAO Information API Endpoint
+ * Chat API Endpoint
  *
- * Simple local API route that responds to LXDAO-related queries
- * with hardcoded information. Matches the chat API format but
- * runs locally without payment requirements.
+ * Accepts simple format: { agentId, message }
+ * Works with both SDK and Web App
  */
 
 import { NextRequest, NextResponse } from "next/server";
 
 interface ChatRequest {
-  sessionId: string;
-  walletAddress: string;
-  projectId: string;
-  content: string;
+  agentId: string;
+  message: string;
 }
 
 interface ChatResponse {
@@ -29,17 +26,18 @@ export async function POST(request: NextRequest) {
   try {
     // Parse request body
     const body: ChatRequest = await request.json();
+    const { agentId, message } = body;
 
     // Validate required fields
-    if (!body.content) {
+    if (!message) {
       return NextResponse.json(
-        { error: "Missing required field: content" },
+        { error: "Missing required field: message" },
         { status: 400 }
       );
     }
 
-    // Check if content contains "LXDAO" keyword (case-insensitive)
-    const containsLXDAO = body.content.toLowerCase().includes("lxdao");
+    // Check if message contains "LXDAO" keyword (case-insensitive)
+    const containsLXDAO = message.toLowerCase().includes("lxdao");
 
     // Build response
     const response: ChatResponse = {
@@ -47,17 +45,15 @@ export async function POST(request: NextRequest) {
     };
 
     // Log request for debugging
-    console.log("📝 LXDAO API Request:", {
-      sessionId: body.sessionId,
-      walletAddress: body.walletAddress,
-      projectId: body.projectId,
-      contentLength: body.content.length,
+    console.log("📝 Chat API Request:", {
+      agentId,
+      messageLength: message.length,
       containsLXDAO,
     });
 
     return NextResponse.json(response, { status: 200 });
   } catch (error) {
-    console.error("❌ LXDAO API Error:", error);
+    console.error("❌ Chat API Error:", error);
 
     return NextResponse.json(
       {

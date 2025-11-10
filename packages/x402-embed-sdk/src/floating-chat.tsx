@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { useWallet } from '@solana/wallet-adapter-react';
+import { WalletContextState } from '@solana/wallet-adapter-react';
 import { MessageCircle, X, Send } from 'lucide-react';
 import { sendChatRequest } from './lib/agent-service';
 import { PaymentError } from './lib/x402-payment';
@@ -28,6 +28,7 @@ if (typeof document !== 'undefined') {
 }
 
 export interface FloatingChatProps {
+  wallet: WalletContextState; // Wallet instance from parent app
   agentId: string;
   agentName?: string;
   agentAvatar?: string;
@@ -47,6 +48,7 @@ interface Message {
 }
 
 export function FloatingChat({
+  wallet,
   agentId,
   agentName = 'AI Agent',
   agentAvatar = '',
@@ -55,13 +57,23 @@ export function FloatingChat({
   logoUrl = '/logo.svg',
   apiEndpoint = 'http://localhost:3000', // Default API endpoint
 }: FloatingChatProps) {
-  const wallet = useWallet();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Debug wallet connection status
+  useEffect(() => {
+    console.log('🔍 [FloatingChat] Wallet status:', {
+      connected: wallet.connected,
+      connecting: wallet.connecting,
+      disconnecting: wallet.disconnecting,
+      publicKey: wallet.publicKey?.toBase58(),
+      walletName: wallet.wallet?.adapter.name,
+    });
+  }, [wallet.connected, wallet.connecting, wallet.disconnecting, wallet.publicKey, wallet.wallet]);
 
   // Auto-close error toast after 3 seconds
   useEffect(() => {
@@ -131,12 +143,9 @@ export function FloatingChat({
     try {
       // Make x402 request with payment
       const response = await sendChatRequest(
-        {
-          agentId,
-          message: content,
-        },
-        wallet,
-        apiEndpoint
+        agentId,
+        content,
+        wallet
       );
 
       // Add agent response
