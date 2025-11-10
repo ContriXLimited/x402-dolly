@@ -1,6 +1,6 @@
 {
   "name": "@askdolly/x402-embed-sdk",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Embeddable X402 payment widget for Solana - floating chat interface with built-in USDC payment support",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
