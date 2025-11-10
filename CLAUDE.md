@@ -141,11 +141,12 @@ NEXT_PUBLIC_API_ENDPOINT=http://localhost:3000
 - Direct file exports: `import { Button } from '@repo/ui/button'`
 - Components in `packages/ui/src/*.tsx`
 
-### @dolly/x402-embed-sdk
+### @askdolly/x402-embed-sdk
 
 Standalone embeddable X402 payment widget for Solana - a beautiful floating chat interface with built-in USDC payment support.
 
 **Location:** `packages/x402-embed-sdk`
+**NPM Package:** `@askdolly/x402-embed-sdk`
 
 The package includes a reusable **FloatingChat** component that encapsulates the complete X402 payment flow in a floating chat widget.
 
@@ -160,7 +161,7 @@ The package includes a reusable **FloatingChat** component that encapsulates the
 
 **Usage:**
 ```tsx
-import { FloatingChat } from '@dolly/x402-embed-sdk';
+import { FloatingChat } from '@askdolly/x402-embed-sdk';
 
 export default function MyPage() {
   return (
@@ -205,6 +206,13 @@ cd packages/x402-embed-sdk
 pnpm build  # Build the package
 npm publish # Publish to npm (requires authentication)
 ```
+
+**Build Configuration:**
+- Uses `tsup` for bundling (config in `tsup.config.ts`)
+- Outputs both CommonJS (`dist/index.js`) and ESM (`dist/index.mjs`) formats
+- TypeScript definitions included (`dist/index.d.ts`)
+- Minified and tree-shaken for production
+- Peer dependencies: React 18+, `@solana/wallet-adapter-react`
 
 **Internal Structure:**
 - `src/floating-chat.tsx` - Main FloatingChat component
