@@ -35,7 +35,6 @@ export interface FloatingChatProps {
   agentDescription?: string;
   position?: 'bottom-right' | 'bottom-left';
   logoUrl?: string;
-  apiEndpoint?: string; // API endpoint for chat requests
 }
 
 interface Message {
@@ -55,7 +54,6 @@ export function FloatingChat({
   agentDescription = 'How can I help you today?',
   position = 'bottom-right',
   logoUrl = '/logo.svg',
-  apiEndpoint = 'http://localhost:3000', // Default API endpoint
 }: FloatingChatProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);

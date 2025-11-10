@@ -82,10 +82,18 @@ export async function sendChatRequest(
     messageLength: message.length,
   });
 
+  // Determine API endpoint based on environment
+  const isLocalhost = typeof window !== 'undefined' &&
+    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+  const apiBaseUrl = isLocalhost ? '' : 'https://x402-dolly-web.vercel.app';
+  const apiUrl = `${apiBaseUrl}/api/chat`;
+
+  console.log(`🌐 API URL: ${apiUrl} (isLocalhost: ${isLocalhost})`);
+
   try {
     // Step 1: Make initial request (expecting 402)
     console.log("🚀 Making initial request to API...");
-    const initialResponse = await fetch("/api/chat", {
+    const initialResponse = await fetch(apiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -125,7 +133,7 @@ export async function sendChatRequest(
 
     // Step 6: Retry request with X-PAYMENT header
     console.log("🔄 Retrying request with X-PAYMENT header...");
-    const paymentResponse = await fetch("/api/chat", {
+    const paymentResponse = await fetch(apiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

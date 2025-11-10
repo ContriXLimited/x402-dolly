@@ -150,7 +150,6 @@ export default function MyPage() {
         agentDescription="Specialized in DeFi trading"
         position="bottom-right"
         logoUrl="/logo.svg"
-        apiEndpoint="http://localhost:3000"
       />
     </>
   );
@@ -171,7 +170,6 @@ export default function MyPage() {
         agentAvatar={DEMO_AGENT.avatar}
         position="bottom-right"
         logoUrl="/logo.svg"
-        apiEndpoint="http://localhost:3001/content/cheap"
       />
     </>
   );
