@@ -62,7 +62,6 @@ export function mapProjectToAgent(project: ProjectApiResponse): Agent {
 
 /**
  * Fetches all agents (projects) from the API
- * Filters to only include projects with status='NORMAL'
  */
 export async function fetchAgents(): Promise<Agent[]> {
   try {
@@ -70,11 +69,8 @@ export async function fetchAgents(): Promise<Agent[]> {
     console.log('Agents: Total projects fetched:', projects.length);
     console.log('Agents: Projects:', projects);
 
-    const normalProjects = projects.filter((project) => project.status === 'NORMAL');
-    console.log('Agents: Projects with NORMAL status:', normalProjects.length);
-
     console.log('Agents: Starting to map projects...');
-    const agents = normalProjects.map(mapProjectToAgent);
+    const agents = projects.map(mapProjectToAgent);
     console.log('Agents: Mapped agents:', agents);
     console.log('Agents: Successfully mapped', agents.length, 'agents');
 

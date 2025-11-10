@@ -118,7 +118,7 @@ export async function sendChatRequest(
   try {
     // Step 1: Make initial request (expecting 402)
     console.log("🚀 Making initial request to API...");
-    const initialResponse = await fetch(`${API_ENDPOINT}/api/chat/messages`, {
+    const initialResponse = await fetch(`${API_ENDPOINT}/api/chat`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -158,7 +158,7 @@ export async function sendChatRequest(
 
     // Step 6: Retry request with X-PAYMENT header
     console.log("🔄 Retrying request with X-PAYMENT header...");
-    const paymentResponse = await fetch(`${API_ENDPOINT}/api/chat/messages`, {
+    const paymentResponse = await fetch(`${API_ENDPOINT}/api/chat`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -173,7 +173,7 @@ export async function sendChatRequest(
       const errorData = await paymentResponse.json();
       throw createPaymentError(
         "unknown",
-        `Payment validation failed: ${typeof errorData.error === 'object' ? JSON.stringify(errorData.error) : errorData.error || "Unknown error"}`
+        `Payment validation failed: ${typeof errorData.error === "object" ? JSON.stringify(errorData.error) : errorData.error || "Unknown error"}`
       );
     }
 
@@ -206,7 +206,8 @@ export async function sendChatRequest(
     }
 
     // Check for X-PAYMENT-RESPONSE header
-    const paymentResponseHeader = paymentResponse.headers.get("x-payment-response");
+    const paymentResponseHeader =
+      paymentResponse.headers.get("x-payment-response");
     if (paymentResponseHeader) {
       const paymentInfo = parsePaymentResponse(paymentResponseHeader);
       console.log("✅ Payment successful!");
@@ -263,5 +264,7 @@ function createPaymentError(
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isPaymentError(error: any): error is PaymentError & Error {
-  return error && typeof error.type === "string" && typeof error.message === "string";
+  return (
+    error && typeof error.type === "string" && typeof error.message === "string"
+  );
 }
