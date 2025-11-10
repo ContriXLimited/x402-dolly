@@ -40,4 +40,4 @@ jobs:
       - name: Publish to npm with OIDC
         run: |
           cd packages/x402-embed-sdk
-          npm publish --access public
+          npm publish
