@@ -9,40 +9,53 @@ import { ChatMessage, type Message } from '@/components/ChatMessage';
 import { ChatInput } from '@/components/ChatInput';
 import { sendChatRequest } from '@/lib/agent-service';
 import { PaymentError } from '@/lib/x402-payment';
-
-// Mock agent data - same as home page
-const AGENTS = [
-  { id: '1', name: 'Agent Alpha', description: 'Specialized in DeFi trading and portfolio management strategies', avatar: '' },
-  { id: '2', name: 'Agent Beta', description: 'NFT market analysis and trend prediction expert', avatar: '' },
-  { id: '3', name: 'Agent Gamma', description: 'Smart contract auditing and security analysis specialist', avatar: '' },
-  { id: '4', name: 'Agent Delta', description: 'Cross-chain bridge optimization and transaction routing', avatar: '' },
-  { id: '5', name: 'Agent Epsilon', description: 'Yield farming strategy optimizer and risk assessor', avatar: '' },
-  { id: '6', name: 'Agent Zeta', description: 'Token launch analysis and early opportunity detection', avatar: '' },
-  { id: '7', name: 'Agent Eta', description: 'DAO governance participation and voting recommendations', avatar: '' },
-  { id: '8', name: 'Agent Theta', description: 'MEV protection and transaction optimization expert', avatar: '' },
-];
+import { fetchAgentById, type Agent } from '@/lib/agents';
 
 export default function ChatPage() {
   const params = useParams();
   const router = useRouter();
   const wallet = useWallet();
   const agentId = params.agentId as string;
-  const agent = AGENTS.find((a) => a.id === agentId);
 
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      content: `Hello! I'm ${agent?.name}. ${agent?.description}. How can I help you today?`,
-      sender: 'agent',
-      timestamp: new Date(),
-      agentAvatar: agent?.avatar,
-      agentName: agent?.name,
-    },
-  ]);
+  const [agent, setAgent] = useState<Agent | null>(null);
+  const [agentLoading, setAgentLoading] = useState(true);
+  const [messages, setMessages] = useState<Message[]>([]);
 
   const [isTyping, setIsTyping] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Fetch agent data on mount
+  useEffect(() => {
+    const loadAgent = async () => {
+      try {
+        setAgentLoading(true);
+        const fetchedAgent = await fetchAgentById(agentId);
+        setAgent(fetchedAgent);
+
+        // Initialize welcome message once agent is loaded
+        if (fetchedAgent) {
+          setMessages([
+            {
+              id: '1',
+              content: `Hello! I'm ${fetchedAgent.name}. ${fetchedAgent.description}. How can I help you today?`,
+              sender: 'agent',
+              timestamp: new Date(),
+              agentAvatar: fetchedAgent.avatar,
+              agentName: fetchedAgent.name,
+            },
+          ]);
+        }
+      } catch (error) {
+        console.error('Error loading agent:', error);
+        setAgent(null);
+      } finally {
+        setAgentLoading(false);
+      }
+    };
+
+    loadAgent();
+  }, [agentId]);
 
   // Auto scroll to bottom when new messages arrive
   const scrollToBottom = () => {
@@ -145,14 +158,31 @@ export default function ChatPage() {
     router.push('/');
   };
 
+  // Loading state
+  if (agentLoading) {
+    return (
+      <div className="min-h-screen bg-[#121212] flex items-center justify-center">
+        <div className="text-white text-center">
+          <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <h2 className="text-xl">Loading agent...</h2>
+        </div>
+      </div>
+    );
+  }
+
+  // Agent not found
   if (!agent) {
     return (
       <div className="min-h-screen bg-[#121212] flex items-center justify-center">
         <div className="text-white text-center">
+          <div className="text-6xl mb-4">🤖</div>
           <h2 className="text-2xl font-bold mb-2">Agent not found</h2>
+          <p className="text-gray-400 mb-6">
+            The agent you're looking for doesn't exist or is not available.
+          </p>
           <button
             onClick={handleBack}
-            className="gradient-button px-6 py-2 rounded-lg"
+            className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-semibold hover:opacity-90 transition-opacity"
           >
             Back to Home
           </button>
