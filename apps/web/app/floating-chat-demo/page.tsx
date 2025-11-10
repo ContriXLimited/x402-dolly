@@ -1,7 +1,7 @@
 'use client';
 
 import { Header } from '@/components/Header';
-import { FloatingChat } from '@dolly/x402-embed-sdk';
+import { FloatingChat } from '@askdolly/x402-embed-sdk';
 
 // Mock agent data
 const DEMO_AGENT = {
@@ -128,7 +128,7 @@ export default function FloatingChatDemo() {
               <div className="mt-16 bg-black/40 backdrop-blur-lg border border-white/10 rounded-2xl p-8 text-left max-w-3xl mx-auto">
                 <h2 className="text-white font-semibold text-2xl mb-4">Usage Example</h2>
                 <pre className="text-sm text-gray-300 overflow-x-auto">
-                  <code>{`import { FloatingChat } from '@dolly/x402-embed-sdk';
+                  <code>{`import { FloatingChat } from '@askdolly/x402-embed-sdk';
 
 export default function MyPage() {
   return (

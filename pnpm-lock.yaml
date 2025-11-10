@@ -57,7 +57,7 @@ importers:
 
   apps/web:
     dependencies:
-      '@dolly/x402-embed-sdk':
+      '@askdolly/x402-embed-sdk':
         specifier: workspace:*
         version: link:../../packages/x402-embed-sdk
       '@radix-ui/react-slot':

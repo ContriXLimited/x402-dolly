@@ -11,7 +11,7 @@
     "check-types": "next typegen && tsc --noEmit"
   },
   "dependencies": {
-    "@dolly/x402-embed-sdk": "workspace:*",
+    "@askdolly/x402-embed-sdk": "workspace:*",
     "@radix-ui/react-slot": "^1.2.4",
     "@repo/ui": "workspace:*",
     "@solana/spl-token": "^0.4.14",

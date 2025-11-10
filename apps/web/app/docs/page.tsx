@@ -136,10 +136,10 @@ export default function DocsPage() {
                     <CodeBlock
                       language="bash"
                       code={`# Install the package (when published to npm)
-npm install @dolly/x402-embed-sdk
+npm install @askdolly/x402-embed-sdk
 
 # Or use the local package in your monorepo
-pnpm add @dolly/x402-embed-sdk`}
+pnpm add @askdolly/x402-embed-sdk`}
                       showLineNumbers={false}
                     />
                   </div>
@@ -179,7 +179,7 @@ export default function RootLayout({
                     <CodeBlock
                       title="app/page.tsx"
                       language="typescript"
-                      code={`import { FloatingChat } from '@dolly/x402-embed-sdk';
+                      code={`import { FloatingChat } from '@askdolly/x402-embed-sdk';
 
 export default function MyPage() {
   return (

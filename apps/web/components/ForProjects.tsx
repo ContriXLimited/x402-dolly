@@ -77,7 +77,7 @@ export function ForProjects() {
 
                 <pre className="text-sm overflow-x-auto">
                   <code className="text-gray-300">
-{`import { FloatingChat } from '@dolly/x402-embed-sdk';
+{`import { FloatingChat } from '@askdolly/x402-embed-sdk';
 
 export default function MyPage() {
   return (
