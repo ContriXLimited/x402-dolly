@@ -25,6 +25,10 @@ jobs:
         with:
           version: 9
 
+      # Ensure npm 11.5.1 or later for trusted publishing
+      - name: Update npm
+        run: npm install -g npm@latest
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
@@ -33,7 +37,7 @@ jobs:
           cd packages/x402-embed-sdk
           pnpm build
 
-      - name: Publish to npm with provenance
+      - name: Publish to npm with OIDC
         run: |
           cd packages/x402-embed-sdk
-          npm publish
+          npm publish --access public
