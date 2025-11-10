@@ -85,18 +85,15 @@ export default function ChatPage() {
     try {
       // Make x402 request with payment
       const response = await sendChatRequest(
-        {
-          agentId,
-          message: content,
-        },
+        agentId, // projectId
+        content, // message content
         wallet
       );
 
-      // Add agent response - use mock content since response.content may not exist
-      // 200 response means payment successful, show mock result
+      // Add agent response - use actual content from API if available
       const agentMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: `Payment successful! Here's your response: This is a mock result for xxx. The x402 payment flow completed successfully.`,
+        content: response.content || 'Payment successful! Waiting for agent response...',
         sender: 'agent',
         timestamp: new Date(),
         agentAvatar: agent?.avatar,

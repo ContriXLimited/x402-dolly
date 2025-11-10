@@ -13,17 +13,38 @@ import {
   PaymentError,
 } from "./x402-payment";
 
-// Use relative path - Next.js rewrites will proxy to localhost:3000
-const API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT || "";
+// Use relative path - Next.js rewrites will proxy to backend
+const API_ENDPOINT = "";
+
+/**
+ * Generate a random session ID
+ */
+function generateSessionId(): string {
+  return crypto.randomUUID();
+}
 
 export interface ChatRequest {
-  agentId: string;
+  sessionId: string;
+  walletAddress: string;
+  projectId: string;
+  content: string;
+}
+
+export interface PaymentInfo {
+  recipientWallet: string;
+  tokenAccount: string;
+  mint: string;
+  amount: number;
+  amountUSDC: number;
+  network: string;
+  cluster: string;
   message: string;
 }
 
 export interface ChatResponse {
   content?: string;
   transactionSignature?: string;
+  payment?: PaymentInfo;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
@@ -38,10 +59,15 @@ export interface ChatResponse {
  * 4. Return response data on success
  */
 export async function sendChatRequest(
-  request: ChatRequest,
-  wallet: WalletContextState
+  projectId: string,
+  message: string,
+  wallet: WalletContextState,
+  sessionId?: string
 ): Promise<ChatResponse> {
   const { publicKey, signTransaction } = wallet;
+
+  // Generate session ID if not provided
+  const actualSessionId = sessionId || generateSessionId();
 
   // Validate wallet connection
   if (!publicKey) {
@@ -74,15 +100,30 @@ export async function sendChatRequest(
 
   console.log(`  ✅ Sufficient balance: ${balanceCheck.balance} USDC`);
 
+  // Build request body
+  const requestBody: ChatRequest = {
+    sessionId: actualSessionId,
+    walletAddress: publicKey.toBase58(),
+    projectId,
+    content: message,
+  };
+
+  console.log("📝 Request:", {
+    sessionId: actualSessionId,
+    walletAddress: publicKey.toBase58(),
+    projectId,
+    contentLength: message.length,
+  });
+
   try {
     // Step 1: Make initial request (expecting 402)
     console.log("🚀 Making initial request to API...");
-    const initialResponse = await fetch(`${API_ENDPOINT}/api/chat`, {
+    const initialResponse = await fetch(`${API_ENDPOINT}/api/chat/messages`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(request),
+      body: JSON.stringify(requestBody),
     });
 
     // Step 2: Verify 402 Payment Required
@@ -117,13 +158,13 @@ export async function sendChatRequest(
 
     // Step 6: Retry request with X-PAYMENT header
     console.log("🔄 Retrying request with X-PAYMENT header...");
-    const paymentResponse = await fetch(`${API_ENDPOINT}/api/chat`, {
+    const paymentResponse = await fetch(`${API_ENDPOINT}/api/chat/messages`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "X-PAYMENT": xPayment,
       },
-      body: JSON.stringify(request),
+      body: JSON.stringify(requestBody),
     });
 
     // Step 7: Check response status
