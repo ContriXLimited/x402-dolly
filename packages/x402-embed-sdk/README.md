@@ -1,4 +1,4 @@
-# @dolly/x402-embed-sdk
+# @askdolly/x402-embed-sdk
 
 Embeddable X402 payment widget for Solana - a beautiful floating chat interface with built-in USDC payment support.
 
@@ -16,11 +16,11 @@ Embeddable X402 payment widget for Solana - a beautiful floating chat interface 
 ## Installation
 
 ```bash
-npm install @dolly/x402-embed-sdk
+npm install @askdolly/x402-embed-sdk
 # or
-yarn add @dolly/x402-embed-sdk
+yarn add @askdolly/x402-embed-sdk
 # or
-pnpm add @dolly/x402-embed-sdk
+pnpm add @askdolly/x402-embed-sdk
 ```
 
 ## Peer Dependencies
@@ -58,7 +58,7 @@ function App() {
 ### 2. Add FloatingChat Component
 
 ```tsx
-import { FloatingChat } from '@dolly/x402-embed-sdk';
+import { FloatingChat } from '@askdolly/x402-embed-sdk';
 
 export default function MyPage() {
   return (
@@ -139,7 +139,7 @@ See the [X402 Protocol Spec](https://github.com/dolly-x402/spec) for details.
 This package is written in TypeScript and includes type definitions.
 
 ```tsx
-import type { FloatingChatProps, ChatRequest, ChatResponse, PaymentError } from '@dolly/x402-embed-sdk';
+import type { FloatingChatProps, ChatRequest, ChatResponse, PaymentError } from '@askdolly/x402-embed-sdk';
 ```
 
 ## Styling
@@ -162,4 +162,4 @@ Contributions are welcome! Please open an issue or PR on GitHub.
 
 ## Support
 
-For issues and feature requests, please use [GitHub Issues](https://github.com/your-org/dolly-x402-sdk/issues).
+For issues and feature requests, please use [GitHub Issues](https://github.com/ContriXLimited/x402-dolly/issues).
