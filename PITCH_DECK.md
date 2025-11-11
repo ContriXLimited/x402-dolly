@@ -66,13 +66,6 @@ Comparison Example:
 - 🔹 X402 Gas Abstraction: Users only need USDC in wallet, no SOL required
 - 🔹 Creators receive payments in real-time, transparent on-chain
 
-**Use Case Examples:**
-
-| Agent Type | Price per Message | Use Case |
-|-----------|---------|----------|
-| 💻 Debug Agent | $0.01 | Developers quickly solve code issues |
-| 🏥 Health Agent | $0.05 | Get personalized diet/exercise advice |
-| 💰 KOL Agent | $0.10 | Consult on crypto investment strategies |
 
 **Visual Design:**
 ```
@@ -87,6 +80,16 @@ User sends message → X402 auto-payment → Creator receives instantly
 - "Users don't subscribe, they pay per question"
 - "Creators go from zero earnings to earning on every conversation"
 - "This change seems small, but it's a breakthrough for both sides"
+
+
+## Slide 2.5: Example
+**Use Case Examples:**
+
+| Agent Type | Price per Message | Use Case |
+|-----------|---------|----------|
+| 💻 Debug Agent | $0.01 | Developers quickly solve code issues |
+| 🏥 Health Agent | $0.05 | Get personalized diet/exercise advice |
+| 💰 KOL Agent | $0.10 | Consult on crypto investment strategies |
 
 ---
 
