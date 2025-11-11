@@ -1,0 +1,410 @@
+[
+  {
+    "id": "7391678089614331904",
+    "name": "Solayer",
+    "introduction": "Solayer is an institutional-grade execution layer built to power the next era of on-chain finance. Engineered for advanced financial applications such as perpetual DEXs and tokenized real-world assets (RWAs), it delivers the unparalleled speed and reliability required for institutional adoption. By achieving over 100,000 transactions per second with sub-second finality, Solayer provides the first infrastructure capable of matching the throughput of traditional markets like NASDAQ.  Its architecture eliminates front-running and manipulative MEV across DeFi, while enabling complex, cross-chain operations to settle with the fairness and simplicity of a single click. This performance and fairness make it the inevitable settlement layer for the professional traders and institutional capital now entering the space.",
+    "status": "NORMAL",
+    "createdAt": "2025-11-05T03:29:47.303Z",
+    "updatedAt": "2025-11-05T06:37:40.000Z"
+  },
+  {
+    "id": "7381892357001580544",
+    "name": "Zentra",
+    "introduction": "The decentralized World Computer with Upgradable CPU, Unlimited Gas powered by Minus Theory, native Python on @base",
+    "status": "NORMAL",
+    "createdAt": "2025-10-09T03:24:46.838Z",
+    "updatedAt": "2025-10-17T01:26:53.774Z"
+  },
+  {
+    "id": "7381875032093364224",
+    "name": "QuintesProtocol -prod",
+    "introduction": "Quintes is a next-generation DeFi protocol designed to deliver stability, scalability, and sustainable yield through a dual-token model. It features QNT, an over-collateralized, yield-bearing stable asset, and QTS, a utility and governance token. Quintes operates on a proof of collateral mechanism, ensuring market independence and Shariah-compliant yield generation. Unlike traditional yield platforms, Quintes generates real revenue from market-neutral, asset-backed strategies rather than speculative trading. Built by experts from Binance, Chainlink, and Morgan Stanley, the protocol integrates institutional-grade custody, DAO governance, and a long-term growth framework aim",
+    "status": "NORMAL",
+    "createdAt": "2025-10-09T02:15:56.258Z",
+    "updatedAt": "2025-11-01T11:41:32.645Z"
+  },
+  {
+    "id": "7381869473579405312",
+    "name": "QuintesProtocol ",
+    "introduction": "Quintes is a next-generation DeFi protocol designed to deliver stability, scalability, and sustainable yield through a dual-token model. It features QNT, an over-collateralized, yield-bearing stable asset, and QTS, a utility and governance token. Quintes operates on a proof of collateral mechanism, ensuring market independence and Shariah-compliant yield generation. Unlike traditional yield platforms, Quintes generates real revenue from market-neutral, asset-backed strategies rather than speculative trading. Built by experts from Binance, Chainlink, and Morgan Stanley, the protocol integrates institutional-grade custody, DAO governance, and a long-term growth framework aim",
+    "status": "NORMAL",
+    "createdAt": "2025-10-09T01:53:51.005Z",
+    "updatedAt": "2025-10-09T02:00:05.000Z"
+  },
+  {
+    "id": "7380537328046968832",
+    "name": "Zentra",
+    "introduction": "Decentralized World Computer with Upgradable CPU",
+    "status": "NORMAL",
+    "createdAt": "2025-10-05T09:40:22.761Z",
+    "updatedAt": "2025-10-05T09:44:43.000Z"
+  },
+  {
+    "id": "7379339440872755200",
+    "name": "PlayTingz-prod",
+    "introduction": "Tingz is a revolutionary AI-powered gaming platform that transforms simple prompts into fully playable games, making game creation accessible to everyone. Our vibe-code ecosystem combines cutting-edge AI, community-driven collaboration, and intuitive creation tools to help anyone turn their imagination into interactive experiences, instantly and effortlessly.",
+    "status": "NORMAL",
+    "createdAt": "2025-10-02T02:20:24.202Z",
+    "updatedAt": "2025-10-13T14:19:33.639Z"
+  },
+  {
+    "id": "7379337716397248512",
+    "name": "PlayTingz",
+    "introduction": "Tingz is a revolutionary AI-powered gaming platform that transforms simple prompts into fully playable games, making game creation accessible to everyone. Our vibe-code ecosystem combines cutting-edge AI, community-driven collaboration, and intuitive creation tools to help anyone turn their imagination into interactive experiences, instantly and effortlessly.",
+    "status": "NORMAL",
+    "createdAt": "2025-10-02T02:13:33.055Z",
+    "updatedAt": "2025-10-02T02:13:33.055Z"
+  },
+  {
+    "id": "7377937555225841664",
+    "name": "0G-prod",
+    "introduction": "0G Labs: Comprehensive Introduction\nCompany Overview\n0G Labs (Zero Gravity Labs) is a pioneering blockchain company focused on decentralized AI infrastructure, which officially launched its Aristotle Mainnet on September 22, 2025—a landmark achievement in the decentralized AI space. The company positions itself as the creator of the world's first decentralized AI operating system (dAIOS), backed by over $325 million in total funding to advance this groundbreaking technology.\nFounding and Leadership\n0G Labs was founded in 2022 by Michael Heinrich and Thomas Yao, both Stanford graduate school alumni who connected within Silicon Valley's innovation ecosystem. Michael Heinrich serves as CEO, an experienced serial entrepreneur with deep expertise at the intersection of decentralized AI and blockchain technology. The founding narrative traces back to their overlapping time at Stanford, where they envisioned decentralizing AI to enhance accountability and accessibility. The team also includes co-founders Ming Wu (CTO) and Fan Long, bringing top-tier expertise in cryptography and distributed systems.\nRecent Major Developments\nThe company marked a major breakthrough with the Aristotle Mainnet launch on September 22, 2025, featuring the largest day-one ecosystem in decentralized AI. This rollout coincided with the Token Generation Event (TGE), enabling official access for node operators, developers, and the broader community. The Aristotle platform is an AI-optimized modular Layer 1 solution integrating decentralized storage, following benchmarks exceeded on Testnet V3 (Galileo) for throughput and finality.\nFunding and Investment\n0G Labs has secured over $325 million in funding, including a $35 million Pre-Seed round in March 2024, a $40 million Seed round in November 2024, and $30 million raised by the 0G Foundation via AI node sales and token subscriptions. This capital is dedicated to developing the world's first decentralized AI operating system, reflecting strong investor confidence in its vision for a decentralized alternative to traditional AI infrastructure. The funding fuels ambitious goals to build comprehensive dAIOS technology rivaling centralized systems.\nTechnology Architecture\nAt the core of 0G Labs is a modular, layered architecture forming the foundation of its scalable and secure data availability layer. The system operates as a modular Layer 1 blockchain tailored for decentralized AI infrastructure (DeAIOS), integrating scalable storage, data availability, and consensus mechanisms. It employs a sophisticated multi-consensus model for coordinating and ordering network activities, crucial for robust decentralized AI applications. This modular design enhances data availability for high-performance apps while upholding decentralization. The Aristotle Mainnet supports up to 50GB/s throughput and on-chain AI inference for transparent, secure, and verifiable execution.\nMarket Position and Vision\n0G Labs has established itself as a leader in the burgeoning decentralized AI sector, delivering modular infrastructure that overcomes traditional blockchain constraints through superior data storage and availability solutions. Its vision is to democratize AI by dismantling centralized control dominating the industry. By focusing on a complete decentralized AI operating system, the company uniquely positions itself to provide foundational infrastructure for other DeAI applications. With the recent mainnet launch, over 100 ecosystem partners (e.g., Chainlink, Google Cloud), and substantial funding, 0G Labs is primed to spearhead the next era of innovation in decentralized AI technology.\n\n\nCommunity Management Team\n<@502466616475385867> - Community Lead, responsible for collaboration and partnerships\n<@1039826291626606682> - Community Moderator\n<@1075063597698400317> - Community Moderator\n\nCommunity Forms and Appeal Channels\nClosed Forms\n1. Appeal Form 1: https://app.deform.cc/form/93044b49-c7f1-40c1-8880-991a9b59b5c8/?page_number=0\nStatus: Closed\n2. Appeal Form 2: https://docs.google.com/forms/d/e/1FAIpQLSdIHV38n2w9-kWvCfulQ9nMLriQm29gCrdIbU9N0f8-rde1Eg/viewform\nStatus: Ended on Tuesday, October 14, 2024 at 12:00 UTC+0\n\nActive Forms\n1. Recruitment & Service Provider Application Form: https://tinyurl.com/wrz92m8r\nPurpose: Job applications, recruitment, career opportunities, service provider inquiries\nStatus: Open\n2. 0G Ambassador Application Form: https://app.deform.cc/form/41ec96b9-dd4f-46eb-b665-a47c316847a0/?page_number=0\nPurpose: Apply to become a 0G Ambassador\nStatus: Open\n\nOther Support\nFor other questions that not in knowledge, please:\nOpen a ticket in Discord\nContact moderators (<@1039826291626606682> or <@1075063597698400317>) for support\n\n# CRITICAL FORMATTING INSTRUCTIONS\nWhen responding to questions about this document:\n- **MUST preserve Discord user ID mentions in exact format: `<@numbers>`**\n- **DO NOT remove angle brackets `<>` or the @ symbol**\n- **DO NOT convert these IDs to plain text, hyperlinks, or any other format**\n- **When mentioning team members, always use the complete format as specified below**",
+    "status": "NORMAL",
+    "createdAt": "2025-09-28T05:29:48.618Z",
+    "updatedAt": "2025-11-04T06:24:51.648Z"
+  },
+  {
+    "id": "7377202834053271552",
+    "name": "NodeX-prod",
+    "introduction": "NodeX Labs, Inc. is a Web3 infrastructure innovation platform driven by the vision: “Make Any Device On-Chain, Make Compute Social.” Through the deep integration of NaaS, DePIN, and the AI compute economy, Node-X delivers a one-stop solution for node deployment, compute management, and monitoring. Leveraging AI-driven scheduling optimization, the ProofX verification mechanism, a peer-to-peer compute marketplace, and node compute pools, the platform is accelerating the on-chain transformation of all devices and the socialization of compute — becoming a core gateway for the era of Web3 × AI convergence.",
+    "status": "NORMAL",
+    "createdAt": "2025-09-26T04:50:17.441Z",
+    "updatedAt": "2025-10-10T07:44:55.697Z"
+  },
+  {
+    "id": "7377181282800766976",
+    "name": "NodeX",
+    "introduction": "NodeX Labs, Inc. is a Web3 infrastructure innovation platform driven by the vision: “Make Any Device On-Chain, Make Compute Social.” Through the deep integration of NaaS, DePIN, and the AI compute economy, Node-X delivers a one-stop solution for node deployment, compute management, and monitoring. Leveraging AI-driven scheduling optimization, the ProofX verification mechanism, a peer-to-peer compute marketplace, and node compute pools, the platform is accelerating the on-chain transformation of all devices and the socialization of compute — becoming a core gateway for the era of Web3 × AI convergence.",
+    "status": "NORMAL",
+    "createdAt": "2025-09-26T03:24:39.222Z",
+    "updatedAt": "2025-10-09T11:03:22.836Z"
+  },
+  {
+    "id": "7377172005499441152",
+    "name": "Node-X-prod",
+    "introduction": null,
+    "status": "NORMAL",
+    "createdAt": "2025-09-26T02:47:47.340Z",
+    "updatedAt": "2025-09-26T02:47:47.340Z"
+  },
+  {
+    "id": "7376629059922432000",
+    "name": "Buzzing-prod",
+    "introduction": "Core Positioning & Functionality:\nBuzzingApp is a personalized prediction markets platform that aims to optimize the prediction market experience by reducing creation costs to zero, enabling unlimited supply, and using algorithms to enhance user experience . The platform allows users to create markets on anything and convert their knowledge into cash .\n\nFounder & Team:\nBuzzingApp is co-founded by Joseph Xu (@josephxu_), who frequently participates in various AMA sessions and prediction market-related discussions , . Joseph Xu has unique insights on prediction markets, believing that compared to creator tokens, prediction markets allow users to monetize their knowledge without reputational costs .\n\nTechnical Features:\n\nZero Creation Cost: Lowers barriers to user participation\nUnlimited Supply: Ensures market liquidity\nAlgorithm Optimization: Improves prediction accuracy and user experience\nKnowledge Monetization: Converts expertise into economic value\nMarket Positioning:\nBuzzingApp positions itself as a next-generation platform in the prediction markets ecosystem, committed to addressing the shortcomings of traditional prediction market platforms in terms of analytical tools, liquidity, and trading volume.\n\nOfficial BuzzingApp Token (BIZ)\nConfirmed Token Information:\nOfficial Token Name: Bizzy by Virtuals (BIZ)\nCoinGecko ID: bizzy-by-virtuals",
+    "status": "NORMAL",
+    "createdAt": "2025-09-24T14:50:19.027Z",
+    "updatedAt": "2025-09-29T15:43:59.340Z"
+  },
+  {
+    "id": "7376610830822936576",
+    "name": "Buzzing",
+    "introduction": "Core Positioning & Functionality:\nBuzzingApp is a personalized prediction markets platform that aims to optimize the prediction market experience by reducing creation costs to zero, enabling unlimited supply, and using algorithms to enhance user experience . The platform allows users to create markets on anything and convert their knowledge into cash .\n\nFounder & Team:\nBuzzingApp is co-founded by Joseph Xu (@josephxu_), who frequently participates in various AMA sessions and prediction market-related discussions , . Joseph Xu has unique insights on prediction markets, believing that compared to creator tokens, prediction markets allow users to monetize their knowledge without reputational costs .\n\nTechnical Features:\n\nZero Creation Cost: Lowers barriers to user participation\nUnlimited Supply: Ensures market liquidity\nAlgorithm Optimization: Improves prediction accuracy and user experience\nKnowledge Monetization: Converts expertise into economic value\nMarket Positioning:\nBuzzingApp positions itself as a next-generation platform in the prediction markets ecosystem, committed to addressing the shortcomings of traditional prediction market platforms in terms of analytical tools, liquidity, and trading volume.\n\nOfficial BuzzingApp Token (BIZ)\nConfirmed Token Information:\nOfficial Token Name: Bizzy by Virtuals (BIZ)\nCoinGecko ID: bizzy-by-virtuals",
+    "status": "NORMAL",
+    "createdAt": "2025-09-24T13:37:52.873Z",
+    "updatedAt": "2025-09-28T03:29:00.639Z"
+  },
+  {
+    "id": "7376198028660576256",
+    "name": "ZooFinance-prod",
+    "introduction": "🦁LNT - Liquid Node Token🦁  🔥Unshackling liquidity from $Trillions of Locked Assets in Nodes, SAFT/E and RWAs   🔹LNT is the revolutionary asset issuance process for the next crypto cycle and beyond. Using a novel derivative process, LNT creates a liquid secondary market for any locked assets and contracts,  releasing the dry powder to drive the industry forward.   🚀LNT-INO (Initial Node Offering) Launch Pipeline (Mar-May 2025): Powering LnFi, Reppo, Sophon, Impossible Cloud, Aethir, Huddle01 and more  🚉INO Partners: Impossible Finance, Fjord, NodeOps, Tokensoft and Coinlist",
+    "status": "NORMAL",
+    "createdAt": "2025-09-23T10:17:33.167Z",
+    "updatedAt": "2025-10-14T02:24:37.817Z"
+  },
+  {
+    "id": "7376189715390664704",
+    "name": "ZooFinance",
+    "introduction": "🦁LNT - Liquid Node Token🦁  🔥Unshackling liquidity from $Trillions of Locked Assets in Nodes, SAFT/E and RWAs   🔹LNT is the revolutionary asset issuance process for the next crypto cycle and beyond. Using a novel derivative process, LNT creates a liquid secondary market for any locked assets and contracts,  releasing the dry powder to drive the industry forward.   🚀LNT-INO (Initial Node Offering) Launch Pipeline (Mar-May 2025): Powering LnFi, Reppo, Sophon, Impossible Cloud, Aethir, Huddle01 and more  🚉INO Partners: Impossible Finance, Fjord, NodeOps, Tokensoft and Coinlist",
+    "status": "NORMAL",
+    "createdAt": "2025-09-23T09:44:31.130Z",
+    "updatedAt": "2025-09-23T10:14:13.000Z"
+  },
+  {
+    "id": "7374507572260245504",
+    "name": "Euclid Protocol",
+    "introduction": "Euclid Protocol is a premier decentralized cross-chain liquidity infrastructure built on Nibiru, offering unified liquidity and execution layers across leading blockchain ecosystems including Cosmos, Ethereum, Solana, and other EVM-compatible chains. It provides users with seamless, low-slippage cross-chain swaps and efficient pricing mechanisms that eliminate the fragmentation currently plaguing DeFi liquidity—from simple token exchanges to complex multi-chain investment strategies—enabling users to access consolidated liquidity pools without navigating complex cross-chain processes.Beyond basic cross-chain functionality, Euclid Protocol fosters innovation through its revolutionary user experience features, including email-based asset transfers, one-tap investment capabilities, and gamified community engagement programs such as significant airdrop campaigns distributing over $10 million in tokens. Powered by its commitment to unifying the fragmented Web3 liquidity landscape, it supports developers and users worldwide with a comprehensive infrastructure that nurtures cross-chain interoperability, simplified DeFi access, and community-driven ecosystem growth.",
+    "status": "NORMAL",
+    "createdAt": "2025-09-18T18:20:16.953Z",
+    "updatedAt": "2025-09-25T14:12:49.710Z"
+  },
+  {
+    "id": "7374503179855073280",
+    "name": "EuclidProtocolTest",
+    "introduction": "Euclid Protocol is a premier decentralized cross-chain liquidity infrastructure built on Nibiru, offering unified liquidity and execution layers across leading blockchain ecosystems including Cosmos, Ethereum, Solana, and other EVM-compatible chains. It provides users with seamless, low-slippage cross-chain swaps and efficient pricing mechanisms that eliminate the fragmentation currently plaguing DeFi liquidity—from simple token exchanges to complex multi-chain investment strategies—enabling users to access consolidated liquidity pools without navigating complex cross-chain processes.Beyond basic cross-chain functionality, Euclid Protocol fosters innovation through its revolutionary user experience features, including email-based asset transfers, one-tap investment capabilities, and gamified community engagement programs such as significant airdrop campaigns distributing over $10 million in tokens. Powered by its commitment to unifying the fragmented Web3 liquidity landscape, it supports developers and users worldwide with a comprehensive infrastructure that nurtures cross-chain interoperability, simplified DeFi access, and community-driven ecosystem growth.",
+    "status": "NORMAL",
+    "createdAt": "2025-09-18T18:02:49.722Z",
+    "updatedAt": "2025-09-18T18:02:49.722Z"
+  },
+  {
+    "id": "7374479563042066432",
+    "name": "Ring3-prod",
+    "introduction": null,
+    "status": "NORMAL",
+    "createdAt": "2025-09-18T16:28:59.035Z",
+    "updatedAt": "2025-09-18T16:29:19.764Z"
+  },
+  {
+    "id": "7374460159973658624",
+    "name": "Euclid-Protocol-prod",
+    "introduction": "Euclid Protocol is a premier decentralized cross-chain liquidity infrastructure built on Nibiru, offering unified liquidity and execution layers across leading blockchain ecosystems including Cosmos, Ethereum, Solana, and other EVM-compatible chains. It provides users with seamless, low-slippage cross-chain swaps and efficient pricing mechanisms that eliminate the fragmentation currently plaguing DeFi liquidity—from simple token exchanges to complex multi-chain investment strategies—enabling users to access consolidated liquidity pools without navigating complex cross-chain processes.Beyond basic cross-chain functionality, Euclid Protocol fosters innovation through its revolutionary user experience features, including email-based asset transfers, one-tap investment capabilities, and gamified community engagement programs such as significant airdrop campaigns distributing over $10 million in tokens. Powered by its commitment to unifying the fragmented Web3 liquidity landscape, it supports developers and users worldwide with a comprehensive infrastructure that nurtures cross-chain interoperability, simplified DeFi access, and community-driven ecosystem growth.",
+    "status": "NORMAL",
+    "createdAt": "2025-09-18T15:11:52.983Z",
+    "updatedAt": "2025-09-23T06:00:06.000Z"
+  },
+  {
+    "id": "7370799090432479232",
+    "name": "Dolly-prod",
+    "introduction": "AskDolly is an AI-powered moderator and community intelligence layer designed for Web3 projects. It combines Dolly Mod (AI Moderator) and Dolly Vibe (community data-to-asset engine) to help crypto communities achieve real-time support, structured engagement, and sustainable growth.\n\nDolly Mod acts as a 24/7 multilingual AI moderator for Discord and Telegram communities. Unlike human moderators—who are often part-time, inconsistent, or untrustworthy—Dolly Mod delivers instant, accurate, and scam-free responses based on the project’s official knowledge base, SOPs, and whitepapers. It can:\n\n- Provide seamless multilingual support across global communities.\n- Answer questions related to on-chain transactions, assets, and governance, offering a VIP-like user experience.\n- Automate SOP-based workflows such as ticket creation, reducing repetitive tasks for project teams.\n- Generate daily and weekly dashboards with sentiment analysis, trending discussions, and user engagement scoring, helping teams understand community health at a glance.\n- Guarantee trust and safety, preventing scams and unreliable information that often plague human moderators.\n\nDolly Vibe extends beyond moderation by turning community interaction into measurable and tradable assets. It captures, structures, and analyzes behavior signals (e.g., questions asked, discussions joined, sentiment shifts) and transforms them into on-chain data points. This allows projects to:\n\n- Quantify community attention and behavior as digital assets.\n- Identify and reward high-value contributors.\n- Unlock new economic primitives where community participation itself becomes part of the project’s financial layer.\n\nMembership & Pricing: AskDolly offers flexible membership tiers (Starter, Professional, Enterprise) with different quotas for AI answers, knowledge base size, and advanced features. Projects can start with free trials, pay monthly or annually, and scale into custom enterprise solutions with workflow integrations and migration support.\n\nVision: AskDolly aims to free communities from the inefficiencies of traditional moderation, provide verifiable insights into community health, and pioneer the concept of trading community attention and engagement as a new asset class in the AgentFi era.",
+    "status": "NORMAL",
+    "createdAt": "2025-09-08T12:44:05.985Z",
+    "updatedAt": "2025-10-20T05:32:48.096Z"
+  },
+  {
+    "id": "7370798301710389248",
+    "name": "Dolly",
+    "introduction": "AskDolly is an AI-powered moderator and community intelligence layer designed for Web3 projects. It combines Dolly Mod (AI Moderator) and Dolly Vibe (community data-to-asset engine) to help crypto communities achieve real-time support, structured engagement, and sustainable growth.\n\nDolly Mod acts as a 24/7 multilingual AI moderator for Discord and Telegram communities. Unlike human moderators—who are often part-time, inconsistent, or untrustworthy—Dolly Mod delivers instant, accurate, and scam-free responses based on the project’s official knowledge base, SOPs, and whitepapers. It can:\n\n- Provide seamless multilingual support across global communities.\n- Answer questions related to on-chain transactions, assets, and governance, offering a VIP-like user experience.\n- Automate SOP-based workflows such as ticket creation, reducing repetitive tasks for project teams.\n- Generate daily and weekly dashboards with sentiment analysis, trending discussions, and user engagement scoring, helping teams understand community health at a glance.\n- Guarantee trust and safety, preventing scams and unreliable information that often plague human moderators.\n\nDolly Vibe extends beyond moderation by turning community interaction into measurable and tradable assets. It captures, structures, and analyzes behavior signals (e.g., questions asked, discussions joined, sentiment shifts) and transforms them into on-chain data points. This allows projects to:\n\n- Quantify community attention and behavior as digital assets.\n- Identify and reward high-value contributors.\n- Unlock new economic primitives where community participation itself becomes part of the project’s financial layer.\n\nMembership & Pricing: AskDolly offers flexible membership tiers (Starter, Professional, Enterprise) with different quotas for AI answers, knowledge base size, and advanced features. Projects can start with free trials, pay monthly or annually, and scale into custom enterprise solutions with workflow integrations and migration support.\n\nVision: AskDolly aims to free communities from the inefficiencies of traditional moderation, provide verifiable insights into community health, and pioneer the concept of trading community attention and engagement as a new asset class in the AgentFi era.",
+    "status": "NORMAL",
+    "createdAt": "2025-09-08T12:40:57.940Z",
+    "updatedAt": "2025-09-08T12:40:57.940Z"
+  },
+  {
+    "id": "7367577463095824384",
+    "name": "the interceptor-prod",
+    "introduction": null,
+    "status": "NORMAL",
+    "createdAt": "2025-08-30T15:22:30.177Z",
+    "updatedAt": "2025-08-30T15:22:30.177Z"
+  },
+  {
+    "id": "7367577338134925312",
+    "name": "flashbots-prod",
+    "introduction": "This bot serves as a 24/7 AI assistant and community moderator that supports the platform. It must detect when a user is referring to Flashbots and respond using the appropriate knowledge base, tone, and context.\n\nFlashbots is a research and development organization focused on minimizing the negative impact of Maximal Extractable Value (MEV) in blockchain ecosystems such as Ethereum. The bot must be capable of explaining MEV-related concepts like MEV Boost, Proposer Builder Separation (PBS), SUAVE, Protect RPC, relays, and the block building process. It should assist validators, searchers, and builders in using Flashbots tools effectively.\n\nAll answers related to Flashbots should be accurate, up to date, and based on official documentation available at docs.flashbots.net\n. The bot should avoid unverified claims or speculative advice and maintain a neutral tone when discussing sensitive topics like decentralization and MEV ethics.\n\nThe bot must provide real-time, multilingual, and trustworthy support, summarize documentation accurately, and explain workflows clearly. It should avoid scams, misinformation, or outdated instructions. If applicable, it may also quantify user sentiment or engagement levels to support internal reporting or dashboarding needs.\n\nThe goal of this bot is to help users navigate the Flashbots ecosystem with confidence. It enables faster learning, smarter decisions, and reduced workload for human moderators while increasing trust, accuracy, and scalability for the community.",
+    "status": "NORMAL",
+    "createdAt": "2025-08-30T15:22:00.388Z",
+    "updatedAt": "2025-09-24T05:14:23.872Z"
+  },
+  {
+    "id": "7366739940446572544",
+    "name": "Test-prod",
+    "introduction": null,
+    "status": "NORMAL",
+    "createdAt": "2025-08-28T07:54:29.214Z",
+    "updatedAt": "2025-08-28T07:54:29.214Z"
+  },
+  {
+    "id": "7364905494479114240",
+    "name": "Donate3-prod",
+    "introduction": null,
+    "status": "NORMAL",
+    "createdAt": "2025-08-23T06:25:03.212Z",
+    "updatedAt": "2025-08-23T06:25:28.778Z"
+  },
+  {
+    "id": "7364677631586865152",
+    "name": "AskDolly-prod",
+    "introduction": "AskDolly is an AI-powered moderator and community intelligence layer designed for Web3 projects. It combines Dolly Mod (AI Moderator) and Dolly Vibe (community data-to-asset engine) to help crypto communities achieve real-time support, structured engagement, and sustainable growth.\n\nDolly Mod acts as a 24/7 multilingual AI moderator for Discord and Telegram communities. Unlike human moderators—who are often part-time, inconsistent, or untrustworthy—Dolly Mod delivers instant, accurate, and scam-free responses based on the project’s official knowledge base, SOPs, and whitepapers. It can:\n\n- Provide seamless multilingual support across global communities.\n- Answer questions related to on-chain transactions, assets, and governance, offering a VIP-like user experience.\n- Automate SOP-based workflows such as ticket creation, reducing repetitive tasks for project teams.\n- Generate daily and weekly dashboards with sentiment analysis, trending discussions, and user engagement scoring, helping teams understand community health at a glance.\n- Guarantee trust and safety, preventing scams and unreliable information that often plague human moderators.\n\nDolly Vibe extends beyond moderation by turning community interaction into measurable and tradable assets. It captures, structures, and analyzes behavior signals (e.g., questions asked, discussions joined, sentiment shifts) and transforms them into on-chain data points. This allows projects to:\n\n- Quantify community attention and behavior as digital assets.\n- Identify and reward high-value contributors.\n- Unlock new economic primitives where community participation itself becomes part of the project’s financial layer.\n\nMembership & Pricing: AskDolly offers flexible membership tiers (Starter, Professional, Enterprise) with different quotas for AI answers, knowledge base size, and advanced features. Projects can start with free trials, pay monthly or annually, and scale into custom enterprise solutions with workflow integrations and migration support.\n\nVision: AskDolly aims to free communities from the inefficiencies of traditional moderation, provide verifiable insights into community health, and pioneer the concept of trading community attention and engagement as a new asset class in the AgentFi era.",
+    "status": "NORMAL",
+    "createdAt": "2025-08-22T15:19:36.465Z",
+    "updatedAt": "2025-09-22T03:32:07.393Z"
+  },
+  {
+    "id": "7364670320768192512",
+    "name": "AskDolly",
+    "introduction": "AskDolly is an AI-powered moderator and community intelligence layer designed for Web3 projects. It combines Dolly Mod (AI Moderator) and Dolly Vibe (community data-to-asset engine) to help crypto communities achieve real-time support, structured engagement, and sustainable growth.\n\nDolly Mod acts as a 24/7 multilingual AI moderator for Discord and Telegram communities. Unlike human moderators—who are often part-time, inconsistent, or untrustworthy—Dolly Mod delivers instant, accurate, and scam-free responses based on the project’s official knowledge base, SOPs, and whitepapers. It can:\n\n- Provide seamless multilingual support across global communities.\n- Answer questions related to on-chain transactions, assets, and governance, offering a VIP-like user experience.\n- Automate SOP-based workflows such as ticket creation, reducing repetitive tasks for project teams.\n- Generate daily and weekly dashboards with sentiment analysis, trending discussions, and user engagement scoring, helping teams understand community health at a glance.\n- Guarantee trust and safety, preventing scams and unreliable information that often plague human moderators.\n\nDolly Vibe extends beyond moderation by turning community interaction into measurable and tradable assets. It captures, structures, and analyzes behavior signals (e.g., questions asked, discussions joined, sentiment shifts) and transforms them into on-chain data points. This allows projects to:\n\n- Quantify community attention and behavior as digital assets.\n- Identify and reward high-value contributors.\n- Unlock new economic primitives where community participation itself becomes part of the project’s financial layer.\n\nMembership & Pricing: AskDolly offers flexible membership tiers (Starter, Professional, Enterprise) with different quotas for AI answers, knowledge base size, and advanced features. Projects can start with free trials, pay monthly or annually, and scale into custom enterprise solutions with workflow integrations and migration support.\n\nVision: AskDolly aims to free communities from the inefficiencies of traditional moderation, provide verifiable insights into community health, and pioneer the concept of trading community attention and engagement as a new asset class in the AgentFi era.",
+    "status": "NORMAL",
+    "createdAt": "2025-08-22T14:50:33.431Z",
+    "updatedAt": "2025-08-31T04:51:23.362Z"
+  },
+  {
+    "id": "7360524447171743744",
+    "name": "LXDAO",
+    "introduction": "LXDAO is a decentralized autonomous organization dedicated to fostering valuable open source projects in the Web3 ecosystem, with \"LX\" representing conscience and integrity (良心) as its core value. The organization focuses on three key areas: DAO governance and infrastructure development, Web3 education, and comprehensive open source project support through grants, development tools, and ecosystem partnerships. Through its four-pillar strategic framework—mechanism validation and project incubation, ecosystem network expansion, sustainable financial model construction, and collaborative learning platform development—LXDAO systematically addresses the core challenges facing open source projects in funding, technology, and governance. With a long-term vision to become the \"Whampoa Military Academy\" of Web3 innovation and establish a global open source collaboration network, LXDAO aims to connect worldwide open source forces and ultimately welcome 1 billion users into the Web3 ecosystem through its commitment to open source sharing, collaborative autonomy, and sustainable development.",
+    "status": "NORMAL",
+    "createdAt": "2025-08-11T04:16:20.139Z",
+    "updatedAt": "2025-11-05T14:51:37.908Z"
+  },
+  {
+    "id": "7359503982093406208",
+    "name": "HackQuest",
+    "introduction": "HackQuest is a premier free, multichain Web3 developer and founder platform, offering immersive, certified learning paths across leading ecosystems such as Ethereum, Solana, Arbitrum, Mantle, BNB, XION, Eclipse, and more. It provides users with interactive, gamified lessons and guided projects that allow them to build practical blockchain skills—from smart contracts and decentralized apps to full-stack Web3 development—and earn on‑chain certificates.\nBeyond education, HackQuest fosters innovation through hackathons, accelerators, hack-style co-learning camps, and community events designed to help creators take their ideas from concept to launch. Powered by its commitment to lowering the barriers to Web3, it supports developers worldwide with a one‑stop infrastructure that nurtures learning, building, and community collaboration.\n\n0G is a modular AI blockchain that provides scalable, secure, and decentralized infrastructure for AI applications. It combines high-performance blockchain technology with AI-specific optimizations, featuring a unique architecture that supports both data availability and storage layers. 0G enables developers to build and deploy AI applications with guaranteed data integrity, privacy, and scalability, while providing a decentralized marketplace for AI services and computational resources.\n\n**You should answer questions about 0G & Hackquest**",
+    "status": "NORMAL",
+    "createdAt": "2025-08-08T08:41:22.305Z",
+    "updatedAt": "2025-09-26T15:35:52.277Z"
+  },
+  {
+    "id": "7359468949492207616",
+    "name": "SamuΞl2000's server-prod",
+    "introduction": null,
+    "status": "NORMAL",
+    "createdAt": "2025-08-08T06:22:09.882Z",
+    "updatedAt": "2025-08-08T06:22:46.693Z"
+  },
+  {
+    "id": "7359178419000578048",
+    "name": "KiteAI-prod",
+    "introduction": "Kite is the first purpose-built foundational blockchain for AI, designed to empower fair and transparent collaboration across data, models, and agents. Proof of Artificial Intelligence (PoAI) ensures that contributors are fairly rewarded, and every interaction is tracked with transparency. Our platform eliminates centralized restrictions, democratizing AI and fostering global innovation.\nDevelopers can own their data and models with clear attribution and fair rewards, maintaining control to monetize and track usage. \nKey features include:\n\nProof of Artificial Intelligence (PoAI): The backbone of Kite AI, enabling transparent tracking and fair attribution for data, models, and agents.\n\nAI-Optimized Sovereign Layer-1 Blockchain: Specifically designed to handle the computational and storage demands of complex AI models, ensuring scalability and reduced latency.\n\nOpen Collaboration: Powers a trustless marketplace for AI assets, aligning incentives across developers, researchers, and innovators.",
+    "status": "NORMAL",
+    "createdAt": "2025-08-07T11:07:42.014Z",
+    "updatedAt": "2025-11-04T02:27:32.884Z"
+  },
+  {
+    "id": "7359145126590943232",
+    "name": "Oasis Sentinels-prod",
+    "introduction": null,
+    "status": "NORMAL",
+    "createdAt": "2025-08-07T08:55:24.486Z",
+    "updatedAt": "2025-08-07T08:55:24.486Z"
+  },
+  {
+    "id": "7358876238724730880",
+    "name": "Oasis-prod",
+    "introduction": "The Oasis Network is a Layer 1 decentralized blockchain network designed to be uniquely scalable, privacy-first and versatile.\n\nThe Network has two main architectural components, the consensus layer and the ParaTime layer.\n\nThe consensus layer is a scalable, high-throughput, secure, proof-of-stake consensus run by a decentralized set of validator nodes.\nThe ParaTime layer hosts many parallel runtimes (ParaTimes), each representing a replicated compute environment with shared state.\n\nDocument:\nUse Oasis\nThis introductory part contains general overview of the Oasis Network such as the distinction between the consensus layer and different ParaTimes. It also covers wallets and other tools for managing your assets across the Oasis chains and how to use unique Oasis features.\n\n🗃️ Oasis Network\n\n🗃️ Manage your Tokens\n\n🗃️ Oasis CLI\n\nBuild on Oasis\nContains learning material for the smart contract developers. Since the Oasis platform is best known for confidentiality, the most notable ParaTime is Oasis Sapphire, an EVM-compatible ParaTime with built-in contract state encryption. The Oasis team also prepared a set of libraries called the Oasis Privacy Layer to bridge existing dApps running on other chains to use the unique Sapphire's confidentiality.\n\nOur Runtime OFfchain Logic (ROFL) enables you to build secure applications running offchain in a trusted environment (TEE) and that seamlessly communicate with Oasis Sapphire. This is ideal for trusted oracles, compute-expensive tasks in AI or as a backend for interactive games.\n\n🗃️ Sapphire\n\n🗃️ Oasis Privacy Layer\n\n🗃️ ROFL\n\n🗃️ Tools & Services\n\nGet Involved\nContains information on official channels to get in touch with the Oasis Network developers and how to contribute to the network.\n\n📄️ Join our Community\nWelcome to the Oasis Community\n\n🔗 Follow Community Portal\n🗃️ Run a Node\n\n📄️ Develop Oasis Core\nThis document outlines our guidelines for contributing to the Oasis Network's\n\nRun Node\nIf you want to run your own Oasis node, this part will provide you with guides on the current Mainnet and Testnet network parameters and how to set up your node, let it be a validator node, perhaps running a ParaTime or just a simple client node for your server to submit transactions and perform queries on the network.\n\n📄️ Overview\nWelcome! This documentation is designed to provide you with a comprehensive\n\n🗃️ Mainnet\n\n🗃️ Testnet\n\n🗃️ Run Your Node\n\nBuild ParaTimes\nApart from the Sapphire, Emerald, Cipher and the Key manager ParaTimes, you can also write, compile, sign and deploy your own ParaTime on the Oasis Network. This part describes the knobs you need to use to do so.\n\n🗃️ Build Paratime\n\nDevelop Core\nWhether you want to contribute your code to the core components of the Oasis Network or just learn more about the Oasis consensus layer and other core components, this is the part for you.\n\n📄️ Overview\nArchitecture\n\nAdditions or changes to the interoperable Oasis network components are always made with consensus. Similar to the Ethereum's ERC/EIP mechanism Oasis follows formal Architectural Decision Records (ADRs) which are first proposed, voted on and finally implemented, if accepted.\n\n🗃️ Architectural Decision Records",
+    "status": "NORMAL",
+    "createdAt": "2025-08-06T15:06:56.625Z",
+    "updatedAt": "2025-08-06T15:06:56.625Z"
+  },
+  {
+    "id": "7358700869493198848",
+    "name": "Homi-prod",
+    "introduction": null,
+    "status": "NORMAL",
+    "createdAt": "2025-08-06T03:30:05.339Z",
+    "updatedAt": "2025-08-06T03:30:05.339Z"
+  },
+  {
+    "id": "7358565351434489856",
+    "name": "Test Me-prod",
+    "introduction": "n8n 项目",
+    "status": "NORMAL",
+    "createdAt": "2025-08-05T18:31:35.316Z",
+    "updatedAt": "2025-10-10T03:16:57.257Z"
+  },
+  {
+    "id": "7358565071431143424",
+    "name": "AITV-prod",
+    "introduction": "AITV is a decentralized content creation platform that merges Artificial Intelligence, Entertainment, and Web3 technologies. By leveraging blockchain technology, AITV aims to build a fairer and more sustainable ecosystem for both creators and viewers. The project is designed to optimize the process of content creation and distribution, offering tools and incentives to drive innovation within the entertainment space.\n \nKey Features of AITV:\nAI-powered Content Creation Tools\n AITV provides creators with AI-driven tools to generate videos, music, and other content at a fraction of the cost and time typically required in traditional media production. These tools empower creators to produce high-quality content without requiring extensive technical expertise.\n \nNFT-based Content Monetization\nAITV enables creators to tokenize their videos and other digital content into NFTs , providing a new way to monetize their work. This feature allows for permanent ownership, transparent transactions, and the ability to trade or resell digital assets within the AITV ecosystem.\n \nDecentralized Platform\nBy utilizing Web3 technologies, AITV ensures that content creation and distribution are decentralized. \n \nFair Reward System\nThe platform implements a blockchain-based incentive model that ensures creators are fairly rewarded for their contributions. \n \nCommunity-driven Ecosystem\n AITV encourages community participation by providing a platform where users can contribute to content creation, voting on content recommendations, and even collaborating with creators. \n \nAI and Blockchain Integration\nAITV stands at the intersection of AI and blockchain, offering innovative tools that enable creators to produce, distribute, and monetize content more efficiently. \n \nSustainable Ecosystem\nAITV is committed to creating a sustainable ecosystem by integrating tokenomics and a governance model that allows the community to participate in decision-making processes.",
+    "status": "NORMAL",
+    "createdAt": "2025-08-05T18:30:28.559Z",
+    "updatedAt": "2025-08-07T02:27:59.367Z"
+  },
+  {
+    "id": "7358351403628105728",
+    "name": "Bitfi-prod",
+    "introduction": "BitFi is an innovative BTC liquidity protocol offering native yield opportunities to BTC holders through a unique CeDeFi hybrid architecture. As a leading cross-chain solution, BitFi is dedicated to addressing liquidity and yielding challenges within the current BTCFi ecosystem. BitFi CN's official Twitter page: https://x.com/Bitfi_CN",
+    "status": "NORMAL",
+    "createdAt": "2025-08-05T04:21:26.186Z",
+    "updatedAt": "2025-08-05T09:23:28.495Z"
+  },
+  {
+    "id": "7357687058619437056",
+    "name": "Celo",
+    "introduction": "Celo is an emerging Ethereum Layer-2 designed to make blockchain technology accessible to all. With its focus on scalability, low fees, and ease of use, Celo is ideal for building blockchain products that reach millions of users around the globe.",
+    "status": "NORMAL",
+    "createdAt": "2025-08-03T08:21:33.991Z",
+    "updatedAt": "2025-09-02T05:38:53.000Z"
+  },
+  {
+    "id": "7357469538310426624",
+    "name": "KiteAI",
+    "introduction": "Kite is the first purpose-built foundational blockchain for AI, designed to empower fair and transparent collaboration across data, models, and agents. Proof of Artificial Intelligence (PoAI) ensures that contributors are fairly rewarded, and every interaction is tracked with transparency. Our platform eliminates centralized restrictions, democratizing AI and fostering global innovation.\nDevelopers can own their data and models with clear attribution and fair rewards, maintaining control to monetize and track usage. \nKey features include:\n\nProof of Artificial Intelligence (PoAI): The backbone of Kite AI, enabling transparent tracking and fair attribution for data, models, and agents.\n\nAI-Optimized Sovereign Layer-1 Blockchain: Specifically designed to handle the computational and storage demands of complex AI models, ensuring scalability and reduced latency.\n\nOpen Collaboration: Powers a trustless marketplace for AI assets, aligning incentives across developers, researchers, and innovators.",
+    "status": "NORMAL",
+    "createdAt": "2025-08-02T17:57:13.109Z",
+    "updatedAt": "2025-08-02T18:38:17.000Z"
+  },
+  {
+    "id": "7356651700884606976",
+    "name": "Uniswap-prod",
+    "introduction": "**Uniswap** is a leading decentralized exchange protocol (DEX) launched in November 2018 by Hayden Adams. Built on Ethereum, it pioneered the **Automated Market Maker (AMM)** model, which enables **permissionless, peer-to-contract token swaps** via smart contracts—no order book or centralized intermediary required ([维基百科][1]).\n\nAt its core, Uniswap operates through **liquidity pools**: anyone can deposit an equal value of two ERC‑20 tokens to become a liquidity provider (LP), earning a share of trading fees while enabling seamless swaps. Prices are determined algorithmically using the constant-product formula, *x × y = k*, ensuring automated, smart‑contract‑driven market making ([Uniswap 文档][2]).\n\nUniswap’s evolution spans several major protocol versions:\n\n* **v1** (2018): The original ETH/ERC‑20 pool model ([Cointelegraph][3], [Uniswap 文档][2])\n* **v2**: Expanded support to ERC‑20/ERC‑20 pools with enhanced routing ([Uniswap 文档][2])\n* **v3**: Introduced **concentrated liquidity**, improving capital efficiency ([Uniswap 文档][4])\n* **v4**: Launched with a **singleton‑pool architecture** and “hooks” to enable customizable behavior and deeper integrations ([es.wikipedia.org][5])\n\nThe **UNI governance token**, launched in September 2020, empowers holders to vote on protocol upgrades, fee settings, and treasury allocations. Built into the protocol's decentralized governance structure, UNI distributed tokens retroactively to early users and remains central to the project’s community-led evolution ([维基百科][1]).\n\nUniswap is open source (GPL‑licensed), non‑custodial, and highly decentralized. It supports swaps across Ethereum and multiple layer‑2 networks, and serves millions of users—making it one of the top‑daily‑volume DEXs, with trillions in cumulative trading volume ([维基百科][1], [Uniswap Labs][6], [DefiLlama][7], [CoinDesk][8]).",
+    "status": "NORMAL",
+    "createdAt": "2025-07-31T11:47:25.474Z",
+    "updatedAt": "2025-07-31T11:56:42.341Z"
+  },
+  {
+    "id": "7353007907799044096",
+    "name": "Uniswap",
+    "introduction": "**Uniswap** is a leading decentralized exchange protocol (DEX) launched in November 2018 by Hayden Adams. Built on Ethereum, it pioneered the **Automated Market Maker (AMM)** model, which enables **permissionless, peer-to-contract token swaps** via smart contracts—no order book or centralized intermediary required ([维基百科][1]).\n\nAt its core, Uniswap operates through **liquidity pools**: anyone can deposit an equal value of two ERC‑20 tokens to become a liquidity provider (LP), earning a share of trading fees while enabling seamless swaps. Prices are determined algorithmically using the constant-product formula, *x × y = k*, ensuring automated, smart‑contract‑driven market making ([Uniswap 文档][2]).\n\nUniswap’s evolution spans several major protocol versions:\n\n* **v1** (2018): The original ETH/ERC‑20 pool model ([Cointelegraph][3], [Uniswap 文档][2])\n* **v2**: Expanded support to ERC‑20/ERC‑20 pools with enhanced routing ([Uniswap 文档][2])\n* **v3**: Introduced **concentrated liquidity**, improving capital efficiency ([Uniswap 文档][4])\n* **v4**: Launched with a **singleton‑pool architecture** and “hooks” to enable customizable behavior and deeper integrations ([es.wikipedia.org][5])\n\nThe **UNI governance token**, launched in September 2020, empowers holders to vote on protocol upgrades, fee settings, and treasury allocations. Built into the protocol's decentralized governance structure, UNI distributed tokens retroactively to early users and remains central to the project’s community-led evolution ([维基百科][1]).\n\nUniswap is open source (GPL‑licensed), non‑custodial, and highly decentralized. It supports swaps across Ethereum and multiple layer‑2 networks, and serves millions of users—making it one of the top‑daily‑volume DEXs, with trillions in cumulative trading volume ([维基百科][1], [Uniswap Labs][6], [DefiLlama][7], [CoinDesk][8]).",
+    "status": "NORMAL",
+    "createdAt": "2025-07-21T10:28:17.502Z",
+    "updatedAt": "2025-07-31T10:44:33.331Z"
+  },
+  {
+    "id": "7352981596347043840",
+    "name": "AITV",
+    "introduction": "AITV is a decentralized content creation platform that merges Artificial Intelligence, Entertainment, and Web3 technologies. By leveraging blockchain technology, AITV aims to build a fairer and more sustainable ecosystem for both creators and viewers. The project is designed to optimize the process of content creation and distribution, offering tools and incentives to drive innovation within the entertainment space.\n \nKey Features of AITV:\nAI-powered Content Creation Tools\n AITV provides creators with AI-driven tools to generate videos, music, and other content at a fraction of the cost and time typically required in traditional media production. These tools empower creators to produce high-quality content without requiring extensive technical expertise.\n \nNFT-based Content Monetization\nAITV enables creators to tokenize their videos and other digital content into NFTs , providing a new way to monetize their work. This feature allows for permanent ownership, transparent transactions, and the ability to trade or resell digital assets within the AITV ecosystem.\n \nDecentralized Platform\nBy utilizing Web3 technologies, AITV ensures that content creation and distribution are decentralized. \n \nFair Reward System\nThe platform implements a blockchain-based incentive model that ensures creators are fairly rewarded for their contributions. \n \nCommunity-driven Ecosystem\n AITV encourages community participation by providing a platform where users can contribute to content creation, voting on content recommendations, and even collaborating with creators. \n \nAI and Blockchain Integration\nAITV stands at the intersection of AI and blockchain, offering innovative tools that enable creators to produce, distribute, and monetize content more efficiently. \n \nSustainable Ecosystem\nAITV is committed to creating a sustainable ecosystem by integrating tokenomics and a governance model that allows the community to participate in decision-making processes.",
+    "status": "NORMAL",
+    "createdAt": "2025-07-21T08:43:44.363Z",
+    "updatedAt": "2025-07-21T11:35:32.926Z"
+  },
+  {
+    "id": "7350585510638653440",
+    "name": "Test Me",
+    "introduction": "n8n 项目",
+    "status": "NORMAL",
+    "createdAt": "2025-07-14T18:02:33.013Z",
+    "updatedAt": "2025-07-15T14:21:03.759Z"
+  },
+  {
+    "id": "7349874445671993348",
+    "name": "Oasis",
+    "introduction": "The Oasis Network is a Layer 1 decentralized blockchain network designed to be uniquely scalable, privacy-first and versatile.\n\nThe Network has two main architectural components, the consensus layer and the ParaTime layer.\n\nThe consensus layer is a scalable, high-throughput, secure, proof-of-stake consensus run by a decentralized set of validator nodes.\nThe ParaTime layer hosts many parallel runtimes (ParaTimes), each representing a replicated compute environment with shared state.\n\nDocument:\nUse Oasis\nThis introductory part contains general overview of the Oasis Network such as the distinction between the consensus layer and different ParaTimes. It also covers wallets and other tools for managing your assets across the Oasis chains and how to use unique Oasis features.\n\n🗃️ Oasis Network\n\n🗃️ Manage your Tokens\n\n🗃️ Oasis CLI\n\nBuild on Oasis\nContains learning material for the smart contract developers. Since the Oasis platform is best known for confidentiality, the most notable ParaTime is Oasis Sapphire, an EVM-compatible ParaTime with built-in contract state encryption. The Oasis team also prepared a set of libraries called the Oasis Privacy Layer to bridge existing dApps running on other chains to use the unique Sapphire's confidentiality.\n\nOur Runtime OFfchain Logic (ROFL) enables you to build secure applications running offchain in a trusted environment (TEE) and that seamlessly communicate with Oasis Sapphire. This is ideal for trusted oracles, compute-expensive tasks in AI or as a backend for interactive games.\n\n🗃️ Sapphire\n\n🗃️ Oasis Privacy Layer\n\n🗃️ ROFL\n\n🗃️ Tools & Services\n\nGet Involved\nContains information on official channels to get in touch with the Oasis Network developers and how to contribute to the network.\n\n📄️ Join our Community\nWelcome to the Oasis Community\n\n🔗 Follow Community Portal\n🗃️ Run a Node\n\n📄️ Develop Oasis Core\nThis document outlines our guidelines for contributing to the Oasis Network's\n\nRun Node\nIf you want to run your own Oasis node, this part will provide you with guides on the current Mainnet and Testnet network parameters and how to set up your node, let it be a validator node, perhaps running a ParaTime or just a simple client node for your server to submit transactions and perform queries on the network.\n\n📄️ Overview\nWelcome! This documentation is designed to provide you with a comprehensive\n\n🗃️ Mainnet\n\n🗃️ Testnet\n\n🗃️ Run Your Node\n\nBuild ParaTimes\nApart from the Sapphire, Emerald, Cipher and the Key manager ParaTimes, you can also write, compile, sign and deploy your own ParaTime on the Oasis Network. This part describes the knobs you need to use to do so.\n\n🗃️ Build Paratime\n\nDevelop Core\nWhether you want to contribute your code to the core components of the Oasis Network or just learn more about the Oasis consensus layer and other core components, this is the part for you.\n\n📄️ Overview\nArchitecture\n\nAdditions or changes to the interoperable Oasis network components are always made with consensus. Similar to the Ethereum's ERC/EIP mechanism Oasis follows formal Architectural Decision Records (ADRs) which are first proposed, voted on and finally implemented, if accepted.\n\n🗃️ Architectural Decision Records",
+    "status": "NORMAL",
+    "createdAt": "2025-07-12T18:57:01.912Z",
+    "updatedAt": "2025-07-28T13:23:25.000Z"
+  },
+  {
+    "id": "7348634225307815940",
+    "name": "0G",
+    "introduction": "0G Labs: Comprehensive Introduction\nCompany Overview\n0G Labs (Zero Gravity Labs) is a pioneering blockchain company focused on decentralized AI infrastructure, which officially launched its Aristotle Mainnet on September 22, 2025—a landmark achievement in the decentralized AI space. The company positions itself as the creator of the world's first decentralized AI operating system (dAIOS), backed by over $325 million in total funding to advance this groundbreaking technology.\nFounding and Leadership\n0G Labs was founded in 2022 by Michael Heinrich and Thomas Yao, both Stanford graduate school alumni who connected within Silicon Valley's innovation ecosystem. Michael Heinrich serves as CEO, an experienced serial entrepreneur with deep expertise at the intersection of decentralized AI and blockchain technology. The founding narrative traces back to their overlapping time at Stanford, where they envisioned decentralizing AI to enhance accountability and accessibility. The team also includes co-founders Ming Wu (CTO) and Fan Long, bringing top-tier expertise in cryptography and distributed systems.\nRecent Major Developments\nThe company marked a major breakthrough with the Aristotle Mainnet launch on September 22, 2025, featuring the largest day-one ecosystem in decentralized AI. This rollout coincided with the Token Generation Event (TGE), enabling official access for node operators, developers, and the broader community. The Aristotle platform is an AI-optimized modular Layer 1 solution integrating decentralized storage, following benchmarks exceeded on Testnet V3 (Galileo) for throughput and finality.\nFunding and Investment\n0G Labs has secured over $325 million in funding, including a $35 million Pre-Seed round in March 2024, a $40 million Seed round in November 2024, and $30 million raised by the 0G Foundation via AI node sales and token subscriptions. This capital is dedicated to developing the world's first decentralized AI operating system, reflecting strong investor confidence in its vision for a decentralized alternative to traditional AI infrastructure. The funding fuels ambitious goals to build comprehensive dAIOS technology rivaling centralized systems.\nTechnology Architecture\nAt the core of 0G Labs is a modular, layered architecture forming the foundation of its scalable and secure data availability layer. The system operates as a modular Layer 1 blockchain tailored for decentralized AI infrastructure (DeAIOS), integrating scalable storage, data availability, and consensus mechanisms. It employs a sophisticated multi-consensus model for coordinating and ordering network activities, crucial for robust decentralized AI applications. This modular design enhances data availability for high-performance apps while upholding decentralization. The Aristotle Mainnet supports up to 50GB/s throughput and on-chain AI inference for transparent, secure, and verifiable execution.\nMarket Position and Vision\n0G Labs has established itself as a leader in the burgeoning decentralized AI sector, delivering modular infrastructure that overcomes traditional blockchain constraints through superior data storage and availability solutions. Its vision is to democratize AI by dismantling centralized control dominating the industry. By focusing on a complete decentralized AI operating system, the company uniquely positions itself to provide foundational infrastructure for other DeAI applications. With the recent mainnet launch, over 100 ecosystem partners (e.g., Chainlink, Google Cloud), and substantial funding, 0G Labs is primed to spearhead the next era of innovation in decentralized AI technology.\n\n\nCommunity Management Team\n<@502466616475385867> - Community Lead, responsible for collaboration and partnerships\n<@1039826291626606682> - Community Moderator\n<@1075063597698400317> - Community Moderator\n\nCommunity Forms and Appeal Channels\nClosed Forms\n1. Appeal Form 1: https://app.deform.cc/form/93044b49-c7f1-40c1-8880-991a9b59b5c8/?page_number=0\nStatus: Closed\n2. Appeal Form 2: https://docs.google.com/forms/d/e/1FAIpQLSdIHV38n2w9-kWvCfulQ9nMLriQm29gCrdIbU9N0f8-rde1Eg/viewform\nStatus: Ended on Tuesday, October 14, 2024 at 12:00 UTC+0\n\nActive Forms\nRecruitment & Service Provider Application Form: https://tinyurl.com/wrz92m8r\nPurpose: Job applications, recruitment, career opportunities, service provider inquiries\nStatus: Open\n\nOther Support\nFor other questions that not in knowledge, please:\nOpen a ticket in Discord\nContact moderators (<@1039826291626606682> or <@1075063597698400317>) for support",
+    "status": "NORMAL",
+    "createdAt": "2025-07-09T08:48:50.336Z",
+    "updatedAt": "2025-10-23T09:46:35.869Z"
+  },
+  {
+    "id": "1750952655732654080",
+    "name": "Mask Network",
+    "introduction": "Mask Network, a browser extension that brings Web3 capabilities directly into traditional social media platforms like X.com (formerly Twitter), Facebook, Instagram, and Minds.|At its core is Persona, a decentralized identity system powered by Next.ID, allowing users to link multiple social accounts and crypto wallets to form a unified digital identity.Mask offers a rich set of features, including:- Encrypted posting and secure sharing- Wallet connection directly on social platforms- Web3 profile and NFT display- Native crypto trading and cross-chain operations- On-chain security and contract risk analysis- Integration with leading Web3 protocols like Lens, Farcaster, Snapshot, Gitcoin, and Artblocks With Mask, users can access Web3 utilities and dApps seamlessly without leaving their favorite Web2 platforms.",
+    "status": "NORMAL",
+    "createdAt": "2025-06-26T15:44:15.733Z",
+    "updatedAt": "2025-07-12T18:58:12.083Z"
+  },
+  {
+    "id": "1750952655733951744",
+    "name": "Bitfi",
+    "introduction": "BitFi is an innovative BTC liquidity protocol offering native yield opportunities to BTC holders through a unique CeDeFi hybrid architecture. As a leading cross-chain solution, BitFi is dedicated to addressing liquidity and yielding challenges within the current BTCFi ecosystem. BitFi CN's official Twitter page: https://x.com/Bitfi_CN",
+    "status": "NORMAL",
+    "createdAt": "2025-06-26T15:44:15.733Z",
+    "updatedAt": "2025-08-09T03:25:57.972Z"
+  },
+  {
+    "id": "1750952655733776384",
+    "name": "Spark",
+    "introduction": "Spark consists of three main product categories:\n\nSavings: Earn savings on your stablecoin holdings\nBorrow: The USDS centric money market protocol. Combining the best liquidity directly from Sky and vertically integrating with the best DeFi protocols.\nLiquidity Layer: Direct liquidity provision into DeFi markets.",
+    "status": "NORMAL",
+    "createdAt": "2025-06-26T15:44:15.733Z",
+    "updatedAt": "2025-07-18T01:34:23.000Z"
+  },
+  {
+    "id": "1750952655733590529",
+    "name": "JuChain-prod",
+    "introduction": "JuChain is a groundbreaking high-performance Layer 1 blockchain platform designed to be an on-chain traffic hub and a user growth engine. With its innovative traffic finance model, JuChain redefines blockchain infrastructure, seamlessly connecting users, developers, and applications. Powered by its proprietary JPoSA (JuChain Proof of Stake Authorization) consensus mechanism, JuChain delivers sub-second transaction confirmations with a 1-second block time and ultra-low costs—making it an ideal foundation for building efficient decentralized applications (dApps).",
+    "status": "NORMAL",
+    "createdAt": "2025-06-26T15:44:15.733Z",
+    "updatedAt": "2025-07-24T09:51:59.611Z"
+  },
+  {
+    "id": "1750952655733590528",
+    "name": "JuChain",
+    "introduction": "JuChain is a groundbreaking high-performance Layer 1 blockchain platform designed to be an on-chain traffic hub and a user growth engine. With its innovative traffic finance model, JuChain redefines blockchain infrastructure, seamlessly connecting users, developers, and applications. Powered by its proprietary JPoSA (JuChain Proof of Stake Authorization) consensus mechanism, JuChain delivers sub-second transaction confirmations with a 1-second block time and ultra-low costs—making it an ideal foundation for building efficient decentralized applications (dApps).",
+    "status": "NORMAL",
+    "createdAt": "2025-06-26T15:44:15.733Z",
+    "updatedAt": "2025-07-28T10:00:11.000Z"
+  },
+  {
+    "id": "1750952655733539328",
+    "name": "Aimoverse",
+    "introduction": "Amico is an Event-based Autonomous AI Agent Framework written in Rust, tailored for embedded AI devices and multi-agent systems. It is designed with high scalability and flexibility for customization, while remaining simple to use and deploy autonomous AI agents on all kinds of devices.",
+    "status": "NORMAL",
+    "createdAt": "2025-06-26T15:44:15.733Z",
+    "updatedAt": "2025-07-12T18:58:14.782Z"
+  }
+]
