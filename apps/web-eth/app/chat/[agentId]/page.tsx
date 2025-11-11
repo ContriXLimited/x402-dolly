@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { useWallet } from '@solana/wallet-adapter-react';
+import { useAccount } from 'wagmi';
 import { Header } from '@/components/Header';
 import { ChatMessage, type Message } from '@/components/ChatMessage';
 import { ChatInput } from '@/components/ChatInput';
@@ -14,7 +14,7 @@ import { fetchAgentById, type Agent } from '@/lib/agents';
 export default function ChatPage() {
   const params = useParams();
   const router = useRouter();
-  const wallet = useWallet();
+  const { address } = useAccount();
   const agentId = params.agentId as string;
 
   const [agent, setAgent] = useState<Agent | null>(null);
@@ -87,7 +87,7 @@ export default function ChatPage() {
       const response = await sendChatRequest(
         agentId, // projectId
         content, // message content
-        wallet
+        address
       );
 
       // Add agent response - use actual content from API if available
@@ -102,11 +102,11 @@ export default function ChatPage() {
 
       setMessages((prev) => [...prev, agentMessage]);
 
-      // Log transaction signature if available
-      if (response.transactionSignature) {
-        console.log('Payment transaction:', response.transactionSignature);
+      // Log transaction hash if available
+      if (response.transactionHash) {
+        console.log('Payment transaction:', response.transactionHash);
         console.log(
-          `View on Solana Explorer: https://explorer.solana.com/tx/${response.transactionSignature}?cluster=devnet`
+          `View on Base Sepolia Explorer: https://sepolia.basescan.org/tx/${response.transactionHash}`
         );
       }
     } catch (error) {

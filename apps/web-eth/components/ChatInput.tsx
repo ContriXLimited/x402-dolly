@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useWallet } from '@solana/wallet-adapter-react';
+import { useAccount } from 'wagmi';
 import { cn } from '@/lib/utils';
 
 interface ChatInputProps {
@@ -11,10 +11,10 @@ interface ChatInputProps {
 
 export function ChatInput({ onSendMessage, disabled = false }: ChatInputProps) {
   const [input, setInput] = useState('');
-  const { connected } = useWallet();
+  const { isConnected } = useAccount();
 
   const handleSend = () => {
-    if (!connected) {
+    if (!isConnected) {
       alert('Please connect your wallet first to send messages.');
       return;
     }
@@ -56,16 +56,16 @@ export function ChatInput({ onSendMessage, disabled = false }: ChatInputProps) {
         {/* Ask button */}
         <button
           onClick={handleSend}
-          disabled={disabled || !input.trim() || !connected}
+          disabled={disabled || !input.trim() || !isConnected}
           className={cn(
             'px-6 py-3 rounded-xl font-semibold text-white',
             'transition-all duration-200',
             'disabled:opacity-50 disabled:cursor-not-allowed',
-            !disabled && input.trim() && connected
+            !disabled && input.trim() && isConnected
               ? 'gradient-button hover:scale-105'
               : 'bg-gray-600'
           )}
-          title={!connected ? 'Please connect your wallet first' : ''}
+          title={!isConnected ? 'Please connect your wallet first' : ''}
         >
           Ask
         </button>

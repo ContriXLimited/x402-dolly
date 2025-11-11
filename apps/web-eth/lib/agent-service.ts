@@ -1,15 +1,16 @@
 /**
  * Agent Service - Handles X402 payment flow for chat requests
+ * Ethereum/Base Sepolia version
  */
 
-import { Connection, Transaction } from "@solana/web3.js";
-import { WalletContextState } from "@solana/wallet-adapter-react";
+import type { Address } from 'viem';
 import {
   buildPaymentTransaction,
+  signAndSendTransaction,
   encodeXPayment,
   parsePaymentResponse,
   checkUSDCBalance,
-  PAYMENT_CONFIG,
+  waitForTransaction,
   PaymentError,
 } from "./x402-payment";
 
@@ -23,18 +24,15 @@ export interface ChatRequest {
 
 export interface PaymentInfo {
   recipientWallet: string;
-  tokenAccount: string;
-  mint: string;
-  amount: number;
-  amountUSDC: number;
+  transactionHash: string;
+  amount: string;
   network: string;
-  cluster: string;
   message: string;
 }
 
 export interface ChatResponse {
   content?: string;
-  transactionSignature?: string;
+  transactionHash?: string;
   payment?: PaymentInfo;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
@@ -46,42 +44,31 @@ export interface ChatResponse {
  * Flow:
  * 1. Make initial request to API
  * 2. If 402 response, build and sign payment transaction
- * 3. Retry with X-PAYMENT header
- * 4. Return response data on success
+ * 3. Wait for transaction confirmation
+ * 4. Retry with X-PAYMENT header containing transaction hash
+ * 5. Return response data on success
  */
 export async function sendChatRequest(
   projectId: string,
   message: string,
-  wallet: WalletContextState
+  address: Address | undefined
 ): Promise<ChatResponse> {
-  const { publicKey, signTransaction } = wallet;
-
   // Validate wallet connection
-  if (!publicKey) {
+  if (!address) {
     throw createPaymentError(
       "signing_error",
       "Wallet not connected. Please connect your wallet."
     );
   }
 
-  if (!signTransaction) {
-    throw createPaymentError(
-      "signing_error",
-      "Wallet does not support signing transactions."
-    );
-  }
-
-  // Connect to Solana
-  const connection = new Connection(PAYMENT_CONFIG.rpcEndpoint, "confirmed");
-
   // Check USDC balance
   console.log("💰 Checking USDC balance...");
-  const balanceCheck = await checkUSDCBalance(connection, publicKey);
+  const balanceCheck = await checkUSDCBalance(address);
 
   if (!balanceCheck.sufficient) {
     throw createPaymentError(
       "insufficient_balance",
-      `Insufficient USDC balance. Required: ${balanceCheck.required} USDC, Available: ${balanceCheck.balance} USDC. Get testnet USDC at: https://faucet.circle.com/`
+      `Insufficient USDC balance. Required: ${balanceCheck.required} USDC, Available: ${balanceCheck.balance} USDC. Get testnet USDC from Base Sepolia faucet.`
     );
   }
 
@@ -121,25 +108,35 @@ export async function sendChatRequest(
     console.log("💳 Payment required (402). Building payment transaction...");
 
     // Step 3: Build payment transaction
-    const transaction = await buildPaymentTransaction(connection, publicKey);
+    const transactionRequest = await buildPaymentTransaction(address);
 
-    // Step 4: Request user signature
+    // Step 4: Sign and send transaction
     console.log("✍️  Requesting wallet signature...");
-    let signedTransaction: Transaction;
+    let transactionHash: `0x${string}`;
     try {
-      signedTransaction = await signTransaction(transaction);
-      console.log("  ✅ Transaction signed");
+      transactionHash = await signAndSendTransaction(address, transactionRequest);
+      console.log("  ✅ Transaction sent:", transactionHash);
     } catch (error) {
       throw createPaymentError(
         "signing_error",
-        `Transaction signing failed: ${error instanceof Error ? error.message : "Unknown error"}`
+        `Transaction signing/sending failed: ${error instanceof Error ? error.message : "Unknown error"}`
       );
     }
 
-    // Step 5: Encode X-PAYMENT header
-    const xPayment = encodeXPayment(signedTransaction);
+    // Step 5: Wait for transaction confirmation
+    try {
+      await waitForTransaction(transactionHash);
+    } catch (error) {
+      throw createPaymentError(
+        "unknown",
+        `Transaction confirmation failed: ${error instanceof Error ? error.message : "Unknown error"}`
+      );
+    }
 
-    // Step 6: Retry request with X-PAYMENT header
+    // Step 6: Encode X-PAYMENT header with transaction hash
+    const xPayment = encodeXPayment(transactionHash);
+
+    // Step 7: Retry request with X-PAYMENT header
     console.log("🔄 Retrying request with X-PAYMENT header...");
     const paymentResponse = await fetch(`${API_ENDPOINT}/api/chat`, {
       method: "POST",
@@ -150,7 +147,7 @@ export async function sendChatRequest(
       body: JSON.stringify(requestBody),
     });
 
-    // Step 7: Check response status
+    // Step 8: Check response status
     if (paymentResponse.status === 402) {
       // Payment still failed
       const errorData = await paymentResponse.json();
@@ -169,7 +166,7 @@ export async function sendChatRequest(
       );
     }
 
-    // Step 8: Parse successful response (200 = success)
+    // Step 9: Parse successful response (200 = success)
     let responseData: ChatResponse = {};
 
     try {
@@ -194,16 +191,17 @@ export async function sendChatRequest(
     if (paymentResponseHeader) {
       const paymentInfo = parsePaymentResponse(paymentResponseHeader);
       console.log("✅ Payment successful!");
-      console.log(`  Transaction: ${paymentInfo.transaction}`);
+      console.log(`  Transaction: ${paymentInfo.transactionHash || transactionHash}`);
 
-      // Add transaction signature to response
-      responseData.transactionSignature = paymentInfo.transaction;
+      // Add transaction hash to response
+      responseData.transactionHash = paymentInfo.transactionHash || transactionHash;
 
-      if (paymentInfo.transaction) {
-        console.log(
-          `  Explorer: https://explorer.solana.com/tx/${paymentInfo.transaction}?cluster=devnet`
-        );
-      }
+      console.log(
+        `  Explorer: https://sepolia.basescan.org/tx/${responseData.transactionHash}`
+      );
+    } else {
+      // Even if no X-PAYMENT-RESPONSE header, include our transaction hash
+      responseData.transactionHash = transactionHash;
     }
 
     return responseData;
@@ -217,7 +215,7 @@ export async function sendChatRequest(
     if (error instanceof TypeError && error.message.includes("fetch")) {
       throw createPaymentError(
         "connection_error",
-        "Network error: Unable to connect to the API server. Make sure it is running on localhost:3000."
+        "Network error: Unable to connect to the API server. Make sure it is running."
       );
     }
 

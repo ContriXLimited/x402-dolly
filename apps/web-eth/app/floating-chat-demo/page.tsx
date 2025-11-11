@@ -1,19 +1,19 @@
 'use client';
 
 import { Header } from '@/components/Header';
-import { FloatingChat } from '@askdolly/x402-embed-sdk';
-import { useWallet } from '@solana/wallet-adapter-react';
+// import { FloatingChat } from '@askdolly/x402-embed-sdk';
+// import { useAccount } from 'wagmi';
 
-// Mock agent data
-const DEMO_AGENT = {
-  id: '1',
-  name: 'Agent Alpha',
-  description: 'Specialized in DeFi trading and portfolio management strategies',
-  avatar: '',
-};
+// Mock agent data (temporarily unused during migration)
+// const DEMO_AGENT = {
+//   id: '1',
+//   name: 'Agent Alpha',
+//   description: 'Specialized in DeFi trading and portfolio management strategies',
+//   avatar: '',
+// };
 
 export default function FloatingChatDemo() {
-  const wallet = useWallet();
+  // const { address } = useAccount();
 
   return (
     <>
@@ -49,7 +49,7 @@ export default function FloatingChatDemo() {
                   </div>
                   <h3 className="text-white font-semibold text-lg mb-2">Connect Wallet</h3>
                   <p className="text-gray-400 text-sm">
-                    Click the wallet button in the header to connect your Solana wallet
+                    Click the wallet button in the header to connect your Ethereum wallet
                   </p>
                 </div>
 
@@ -80,7 +80,7 @@ export default function FloatingChatDemo() {
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-3">
                     <span className="text-purple-400 font-bold">✓</span>
-                    <span>Complete X402 payment flow integration with Solana</span>
+                    <span>Complete X402 payment flow integration with Ethereum/Base Sepolia</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-purple-400 font-bold">✓</span>
@@ -114,15 +114,7 @@ export default function FloatingChatDemo() {
 
                 <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-4">
                   <p className="text-purple-300 text-sm">
-                    <strong>Note:</strong> Make sure you have testnet USDC in your wallet. Get it from{' '}
-                    <a
-                      href="https://faucet.circle.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-purple-200"
-                    >
-                      Circle Faucet
-                    </a>
+                    <strong>Note:</strong> Make sure you have testnet USDC in your wallet on Base Sepolia network.
                   </p>
                 </div>
               </div>
@@ -133,26 +125,21 @@ export default function FloatingChatDemo() {
                 <pre className="text-sm text-gray-300 overflow-x-auto">
                   <code>{`'use client';
 
-import { FloatingChat } from '@askdolly/x402-embed-sdk';
-import { useWallet } from '@solana/wallet-adapter-react';
+// FloatingChat component migration to Ethereum/Base Sepolia is in progress
+// Please use the main chat interface at /select for now
+
+import { useAccount } from 'wagmi';
+import { sendChatRequest } from '@/lib/agent-service';
 
 export default function MyPage() {
-  const wallet = useWallet();
+  const { address } = useAccount();
 
-  return (
-    <>
-      {/* Your page content */}
+  const handleSendMessage = async (message: string) => {
+    const response = await sendChatRequest('agent-id', message, address);
+    console.log(response);
+  };
 
-      <FloatingChat
-        wallet={wallet}
-        agentId="1"
-        agentName="Agent Alpha"
-        agentDescription="Specialized in DeFi trading"
-        position="bottom-right"
-        logoUrl="/logo.svg"
-      />
-    </>
-  );
+  // ... rest of your page implementation
 }`}</code>
                 </pre>
               </div>
@@ -161,16 +148,16 @@ export default function MyPage() {
         </div>
       </div>
 
-      {/* Floating Chat Component - Outside relative container */}
-      <FloatingChat
-        wallet={wallet}
+      {/* Floating Chat Component - Temporarily disabled during Ethereum migration */}
+      {/* <FloatingChat
+        address={address}
         agentId={DEMO_AGENT.id}
         agentName={DEMO_AGENT.name}
         agentDescription={DEMO_AGENT.description}
         agentAvatar={DEMO_AGENT.avatar}
         position="bottom-right"
         logoUrl="/logo.svg"
-      />
+      /> */}
     </>
   );
 }

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useRouter } from 'next/navigation';
 
 export function Header() {
@@ -56,7 +56,7 @@ export function Header() {
         </div>
 
         {/* Wallet Connect Button - Only render on client to avoid hydration mismatch */}
-        {mounted && <WalletMultiButton className="gradient-button" />}
+        {mounted && <ConnectButton />}
       </div>
     </header>
   );
