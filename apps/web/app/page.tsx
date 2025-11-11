@@ -2,6 +2,7 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { Features } from '@/components/Features';
 import { HowItWorks } from '@/components/HowItWorks';
+import { KnowledgeDashboard } from '@/components/KnowledgeDashboard';
 import { ForProjects } from '@/components/ForProjects';
 import { CTASection } from '@/components/CTASection';
 
@@ -22,6 +23,7 @@ export default function Home() {
         <Hero />
         <Features />
         <HowItWorks />
+        <KnowledgeDashboard />
         <ForProjects />
         <CTASection />
       </div>

@@ -9,16 +9,16 @@ export function ForProjects() {
             {/* Left: Text Content */}
             <div>
               <div className="inline-block px-4 py-2 rounded-full bg-purple-500/20 text-purple-400 text-sm font-medium mb-6">
-                For Project Teams
+                For Creators & Communities
               </div>
 
               <h2 className="text-4xl font-bold tracking-tight mb-6 text-white">
-                Integrate X402 into Your Project
+                Turn Your Expertise into Earning Agents
               </h2>
 
               <p className="text-gray-400 text-lg leading-relaxed mb-6">
-                Embed our SDK into your website with just a few lines of code.
-                Provide paid AI support to your community and monetize every interaction.
+                Upload your knowledge, create custom agents, and get paid every time someone asks a question.
+                Chat2Earn model - monetize your expertise while providing instant value to your community.
               </p>
 
               <ul className="space-y-4 mb-8">
@@ -26,21 +26,21 @@ export function ForProjects() {
                   <span className="text-green-400 text-xl mt-0.5">✓</span>
                   <span className="text-gray-300">
                     <strong className="text-white">Easy Integration</strong> -
-                    Drop-in React component
+                    Drop-in React component, one line of code
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-400 text-xl mt-0.5">✓</span>
                   <span className="text-gray-300">
-                    <strong className="text-white">Customizable UI</strong> -
-                    Match your brand identity
+                    <strong className="text-white">Real-Time Earnings</strong> -
+                    Get paid instantly with every interaction
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-400 text-xl mt-0.5">✓</span>
                   <span className="text-gray-300">
-                    <strong className="text-white">Built-in Payments</strong> -
-                    X402 protocol handles everything
+                    <strong className="text-white">Better User Experience</strong> -
+                    Instant answers instead of hours waiting in Discord
                   </span>
                 </li>
               </ul>

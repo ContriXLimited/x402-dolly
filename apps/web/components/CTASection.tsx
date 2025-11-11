@@ -71,6 +71,21 @@ export function CTASection() {
                 </div>
               </div>
             </div>
+
+            {/* Footer - Powered by AskDolly */}
+            <div className="mt-8 pt-6 border-t border-white/5">
+              <p className="text-gray-500 text-sm">
+                Powered by{' '}
+                <a
+                  href="https://askdolly.today/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-400 hover:text-purple-300 font-semibold transition-colors"
+                >
+                  AskDolly
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>

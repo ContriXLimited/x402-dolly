@@ -1,10 +1,16 @@
 export function Features() {
   const features = [
     {
-      icon: '⚡',
-      title: 'Pay Only For What You Use',
+      icon: '💰',
+      title: '$0.01 Per Answer vs $20/Month',
       description:
-        'No monthly subscriptions. Each AI query costs just 0.01 USDC. Stop paying when you stop using.',
+        'Stop overpaying for subscriptions you barely use. Pay only for the exact information you need - pennies instead of dollars.',
+    },
+    {
+      icon: '⚡',
+      title: 'Instant Answers, No Waiting',
+      description:
+        'No more waiting hours in Discord or searching endless docs. Get expert responses in seconds, not days.',
     },
     {
       icon: '🔒',
@@ -13,16 +19,10 @@ export function Features() {
         'All transactions verified on Solana blockchain. Full transparency and immutable payment records.',
     },
     {
-      icon: '🚀',
-      title: 'Lightning-Fast Responses',
-      description:
-        "Solana's high-speed blockchain enables instant payment confirmation and immediate AI responses.",
-    },
-    {
       icon: '🌐',
-      title: 'For Users & Projects',
+      title: 'For Creators & Communities',
       description:
-        'Users chat directly with project agents. Projects embed our SDK to provide paid AI support to their community.',
+        'Turn your knowledge into earning agents. Get paid every time someone asks a question. Chat2Earn model for everyone.',
     },
   ];
 
