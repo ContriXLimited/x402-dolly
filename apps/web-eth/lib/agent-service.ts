@@ -1,18 +1,24 @@
 /**
  * Agent Service - Handles X402 payment flow for chat requests
- * Ethereum/Base Sepolia version
+ * Uses EIP-712 signature for USDC TransferWithAuthorization
  */
 
-import type { Address } from 'viem';
+import type { Address } from "viem";
+import { baseSepolia } from "viem/chains";
 import {
-  buildPaymentTransaction,
-  signAndSendTransaction,
-  encodeXPayment,
-  parsePaymentResponse,
+  generateNonce,
+  buildPaymentHeader,
+  getEIP712Domain,
+  EIP712_TYPES,
+  type TransferAuthorization,
+} from "./x402";
+import {
   checkUSDCBalance,
-  waitForTransaction,
+  parsePaymentResponse,
+  PAYMENT_CONFIG,
   PaymentError,
 } from "./x402-payment";
+import { debugX402Signature } from "./debug-x402";
 
 // Use relative path - Next.js rewrites will proxy to backend
 const API_ENDPOINT = "";
@@ -24,7 +30,7 @@ export interface ChatRequest {
 
 export interface PaymentInfo {
   recipientWallet: string;
-  transactionHash: string;
+  transactionHash?: string;
   amount: string;
   network: string;
   message: string;
@@ -39,19 +45,36 @@ export interface ChatResponse {
 }
 
 /**
+ * Type for the signTypedData function from wagmi
+ */
+export type SignTypedDataFunction = (args: {
+  domain: {
+    name: string;
+    version: string;
+    chainId: number;
+    verifyingContract: Address;
+  };
+  types: typeof EIP712_TYPES;
+  primaryType: "TransferWithAuthorization";
+  message: TransferAuthorization;
+}) => Promise<`0x${string}`>;
+
+/**
  * Send chat request with x402 payment flow
  *
  * Flow:
  * 1. Make initial request to API
- * 2. If 402 response, build and sign payment transaction
- * 3. Wait for transaction confirmation
- * 4. Retry with X-PAYMENT header containing transaction hash
- * 5. Return response data on success
+ * 2. If 402 response, build TransferWithAuthorization message
+ * 3. Request EIP-712 signature from user (no transaction sent)
+ * 4. Build X-PAYMENT header with signature
+ * 5. Retry request with X-PAYMENT header
+ * 6. Return response data on success
  */
 export async function sendChatRequest(
   projectId: string,
   message: string,
-  address: Address | undefined
+  address: Address | undefined,
+  signTypedDataAsync: SignTypedDataFunction
 ): Promise<ChatResponse> {
   // Validate wallet connection
   if (!address) {
@@ -105,36 +128,63 @@ export async function sendChatRequest(
       );
     }
 
-    console.log("💳 Payment required (402). Building payment transaction...");
+    console.log("💳 Payment required (402). Building authorization message...");
 
-    // Step 3: Build payment transaction
-    const transactionRequest = await buildPaymentTransaction(address);
+    // Step 3: Build TransferWithAuthorization message
+    console.log("📝 Building authorization data...");
+    const validBefore =
+      Math.floor(Date.now() / 1000) + PAYMENT_CONFIG.maxTimeoutSeconds;
+    const nonce = generateNonce();
 
-    // Step 4: Sign and send transaction
-    console.log("✍️  Requesting wallet signature...");
-    let transactionHash: `0x${string}`;
+    const authorization: TransferAuthorization = {
+      from: address,
+      to: PAYMENT_CONFIG.payTo,
+      value: BigInt(PAYMENT_CONFIG.maxAmountRequired),
+      validAfter: BigInt(0),
+      validBefore: BigInt(validBefore),
+      nonce,
+    };
+    console.log("✅ Authorization data:", authorization);
+
+    // Step 4: Build EIP-712 domain for signing
+    console.log("📝 Building EIP-712 domain...");
+    const domain = getEIP712Domain(
+      baseSepolia.id,
+      PAYMENT_CONFIG.asset,
+      PAYMENT_CONFIG.extra.name,
+      PAYMENT_CONFIG.extra.version
+    );
+    console.log("✅ Domain:", domain);
+
+    // Step 5: Request EIP-712 signature from user wallet
+    console.log("✍️  Requesting signature from wallet...");
+    let signature: `0x${string}`;
     try {
-      transactionHash = await signAndSendTransaction(address, transactionRequest);
-      console.log("  ✅ Transaction sent:", transactionHash);
+      signature = await signTypedDataAsync({
+        domain,
+        types: EIP712_TYPES,
+        primaryType: "TransferWithAuthorization",
+        message: authorization,
+      });
+      console.log("✅ Signature received:", signature);
     } catch (error) {
       throw createPaymentError(
         "signing_error",
-        `Transaction signing/sending failed: ${error instanceof Error ? error.message : "Unknown error"}`
+        `Signature rejected: ${error instanceof Error ? error.message : "Unknown error"}`
       );
     }
 
-    // Step 5: Wait for transaction confirmation
-    try {
-      await waitForTransaction(transactionHash);
-    } catch (error) {
-      throw createPaymentError(
-        "unknown",
-        `Transaction confirmation failed: ${error instanceof Error ? error.message : "Unknown error"}`
-      );
-    }
+    // Step 6: Build X-PAYMENT header with signature
+    console.log("📝 Building X-PAYMENT header...");
+    const paymentHeader = buildPaymentHeader(
+      signature,
+      authorization,
+      PAYMENT_CONFIG
+    );
+    console.log("✅ Payment header built");
 
-    // Step 6: Encode X-PAYMENT header with transaction hash
-    const xPayment = encodeXPayment(transactionHash);
+    // Debug: Log signature details
+    debugX402Signature(signature, authorization, domain, paymentHeader);
 
     // Step 7: Retry request with X-PAYMENT header
     console.log("🔄 Retrying request with X-PAYMENT header...");
@@ -142,7 +192,7 @@ export async function sendChatRequest(
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-PAYMENT": xPayment,
+        "X-PAYMENT": paymentHeader,
       },
       body: JSON.stringify(requestBody),
     });
@@ -191,17 +241,16 @@ export async function sendChatRequest(
     if (paymentResponseHeader) {
       const paymentInfo = parsePaymentResponse(paymentResponseHeader);
       console.log("✅ Payment successful!");
-      console.log(`  Transaction: ${paymentInfo.transactionHash || transactionHash}`);
 
-      // Add transaction hash to response
-      responseData.transactionHash = paymentInfo.transactionHash || transactionHash;
-
-      console.log(
-        `  Explorer: https://sepolia.basescan.org/tx/${responseData.transactionHash}`
-      );
-    } else {
-      // Even if no X-PAYMENT-RESPONSE header, include our transaction hash
-      responseData.transactionHash = transactionHash;
+      if (paymentInfo.transactionHash) {
+        console.log(`  Transaction: ${paymentInfo.transactionHash}`);
+        responseData.transactionHash = paymentInfo.transactionHash;
+        console.log(
+          `  Explorer: https://sepolia.basescan.org/tx/${paymentInfo.transactionHash}`
+        );
+      } else {
+        console.log("  Payment processed by facilitator");
+      }
     }
 
     return responseData;

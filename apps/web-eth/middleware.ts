@@ -2,8 +2,10 @@ import { Address } from "viem";
 import { paymentMiddleware, Resource, Network } from "x402-next";
 import { NextRequest, NextResponse } from "next/server";
 
-const address = "CmGgLQL36Y9ubtTsy2zmE46TAxwCBm66onZmPPhUWNqv" as Address;
-const network = "solana-devnet" as Network;
+// Receiver/facilitator address on Base Sepolia (replace with your actual address)
+const address = (process.env.NEXT_PUBLIC_RECEIVER_ADDRESS ||
+  "0xF4192Be0b579be42A3479974EC25592DeFfe7141") as Address;
+const network = "base-sepolia" as Network;
 const facilitatorUrl = "https://x402.org/facilitator" as Resource;
 
 const x402PaymentMiddleware = paymentMiddleware(

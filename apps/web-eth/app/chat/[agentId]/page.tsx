@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { useAccount } from 'wagmi';
+import { useAccount, useSignTypedData } from 'wagmi';
 import { Header } from '@/components/Header';
 import { ChatMessage, type Message } from '@/components/ChatMessage';
 import { ChatInput } from '@/components/ChatInput';
@@ -15,6 +15,7 @@ export default function ChatPage() {
   const params = useParams();
   const router = useRouter();
   const { address } = useAccount();
+  const { signTypedDataAsync } = useSignTypedData();
   const agentId = params.agentId as string;
 
   const [agent, setAgent] = useState<Agent | null>(null);
@@ -83,11 +84,12 @@ export default function ChatPage() {
     setIsTyping(true);
 
     try {
-      // Make x402 request with payment
+      // Make x402 request with payment (EIP-712 signature)
       const response = await sendChatRequest(
         agentId, // projectId
         content, // message content
-        address
+        address,
+        signTypedDataAsync
       );
 
       // Add agent response - use actual content from API if available
