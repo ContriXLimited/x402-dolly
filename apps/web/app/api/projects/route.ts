@@ -21,6 +21,12 @@ const PROJECTS: Project[] = [
       "Institutional-grade execution layer built to power the next era of on-chain finance, delivering 100,000+ TPS with sub-second finality for perpetual DEXs and tokenized RWAs.",
   },
   {
+    id: "7391678089614331905",
+    name: "Solana",
+    introduction:
+      "High-performance blockchain supporting 65,000+ TPS with sub-second finality, designed for mass adoption with low fees and energy-efficient Proof of History consensus mechanism.",
+  },
+  {
     id: "7381892357001580544",
     name: "Zentra",
     introduction:

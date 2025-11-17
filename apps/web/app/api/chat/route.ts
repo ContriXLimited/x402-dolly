@@ -16,11 +16,28 @@ interface ChatResponse {
   content: string;
 }
 
-// Hardcoded LXDAO response
-const LXDAO_INFO = `Visit https://lxdao.io/, click "Join us" to complete registration, then attend the weekly community meeting every Saturday at 11:00 AM (UTC+8) to introduce yourself. Afterward, contact the operations team to claim your Member Badge.
-Anyone who embraces Web3 principles and is willing to contribute to open-source projects is welcome to join.`;
+// Hardcoded Solana/Solayer response
+const SOLANA_SOLAYER_INFO = `Solayer is often called an "L2 on Solana," but it's not a traditional Ethereum-style rollup.
+Instead:
 
-const FALLBACK_MESSAGE = "I can help you with LXDAO-related questions. Try asking about 'LXDAO' or 'How to join LXDAO?'";
+Solana provides the base layer (security + data availability).
+
+Solayer provides a separate execution layer where applications can run their own appchains.
+
+This means:
+
+Solayer scales Solana without breaking its single global state.
+
+Apps can run on Solayer for higher throughput or customized rules.
+
+Final settlement still happens on the Solana mainnet.
+
+In short:
+
+Solana = the main chain
+Solayer = an execution layer built on top of Solana that helps scale it horizontally.`;
+
+const FALLBACK_MESSAGE = "I can help you with questions about Solana and Solayer. Try asking about their relationship or how Solayer works!";
 
 export async function POST(request: NextRequest) {
   try {
@@ -36,19 +53,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if message contains "LXDAO" keyword (case-insensitive)
-    const containsLXDAO = message.toLowerCase().includes("lxdao");
+    // Check if message contains "solana" or "solayer" keywords (case-insensitive)
+    const lowerMessage = message.toLowerCase();
+    const containsSolanaKeyword = lowerMessage.includes("solana") || lowerMessage.includes("solayer");
 
     // Build response
     const response: ChatResponse = {
-      content: containsLXDAO ? LXDAO_INFO : FALLBACK_MESSAGE,
+      content: containsSolanaKeyword ? SOLANA_SOLAYER_INFO : FALLBACK_MESSAGE,
     };
 
     // Log request for debugging
     console.log("📝 Chat API Request:", {
       agentId,
       messageLength: message.length,
-      containsLXDAO,
+      containsSolanaKeyword,
     });
 
     return NextResponse.json(response, { status: 200 });
